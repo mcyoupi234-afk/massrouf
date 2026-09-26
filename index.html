@@ -260,6 +260,13 @@ section.card{margin-top:22px}
 .wal small{font-size:.72rem;font-weight:600;opacity:.95}
 .wal-in{box-shadow:4px 4px 0 #111}
 .wal-in b{font-size:3rem}
+.wal.wide{grid-column:1/-1}
+.wal-tag{margin-inline-start:auto;background:#fff;color:#111;border:2px solid #111;border-radius:999px;padding:1px 10px;font-size:.72rem}
+.wal-row{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;margin:4px 0}
+.wal-row .wal-l{display:block}
+.wal-today{background:#fff;color:#111;border:2px solid #111;border-radius:14px;padding:6px 12px;text-align:center;box-shadow:2px 2px 0 #111}
+.wal-today small{display:block;font-size:.68rem;font-weight:700}
+.wal-today b{font-size:1.5rem!important}
 .wchip{display:inline-block;padding:2px 10px;border-radius:999px;border:2px solid #111;font-size:.78rem;font-weight:800}
 
 .fixc{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;width:100%;text-align:start;background:var(--yellow);color:#111;border:var(--bw) solid #111;border-radius:20px;box-shadow:4px 4px 0 var(--sh);padding:12px 14px}
@@ -370,20 +377,21 @@ const FIXED_C='#FFC93C';
 const LEGACY={hanout:'حانوت',food:'بيم / مرجان',out:'قهوة و خرجات',trans:'ترانسبور',subs:'اشتراكات',phone:'تيليفون',home:'دار',health:'صحة',clothes:'حوايج',family:'العائلة',gift:'هدايا',other:'مصروف'};
 
 /* ---------- state ---------- */
-const defWallets=()=>[{id:'ayoub',name:'أيوب',budget:1000,c:0},{id:'hafsa',name:'حفصة',budget:1000,c:1}];
-function blank(){return {v:3,updatedAt:0,settings:{income:0,currency:'DH',setup:false,startDay:25,theme:'light',sv:2,wallets:defWallets(),lastW:'ayoub'},fixed:[],months:{},exp:[]}}
+const defWallets=()=>[{id:'dar',name:'الدار',budget:0,c:2},{id:'ayoub',name:'أيوب',budget:1000,c:0},{id:'hafsa',name:'حفصة',budget:1000,c:1}];
+function blank(){return {v:4,updatedAt:0,settings:{income:0,currency:'DH',setup:false,startDay:25,theme:'light',sv:2,wallets:defWallets(),lastW:'dar'},fixed:[],months:{},exp:[]}}
 function migrate(s){
-  if(!s||![1,2,3].includes(s.v)) return null;
+  if(!s||![1,2,3,4].includes(s.v)) return null;
   if(!Array.isArray(s.exp)) s.exp=[];
   Object.values(s.months||{}).forEach(m=>{ if(Array.isArray(m.exp)){ s.exp.push(...m.exp); delete m.exp; } if(!m.paid) m.paid={}; });
   s.settings=s.settings||{};
   if(!s.settings.startDay) s.settings.startDay=25;
   if(!s.settings.sv){ s.settings.theme='light'; s.settings.sv=2; }
   if(!Array.isArray(s.settings.wallets)||!s.settings.wallets.length) s.settings.wallets=defWallets();
+  if(!s.settings.wallets.some(w=>w.id==='dar')) s.settings.wallets.unshift({id:'dar',name:'الدار',budget:0,c:2});
   const w0=s.settings.wallets[0].id;
   if(!s.settings.lastW) s.settings.lastW=w0;
   s.exp.forEach(x=>{ if(!x.w) x.w=w0; if(!x.note&&x.cat) x.note=LEGACY[x.cat]||'مصروف'; delete x.cat; });
-  s.months=s.months||{}; s.fixed=s.fixed||[]; s.v=3;
+  s.months=s.months||{}; s.fixed=s.fixed||[]; if(s.v<4) s.settings.lastW='dar'; s.v=4;
   return s;
 }
 let state=blank();
@@ -512,7 +520,7 @@ function viewOnboard(){
   return `<div class="onb">
     <div class="brand">مصروفي</div>
     <div class="bank"><div class="big">شحال كتدخّل<br>ف الشهر؟</div></div>
-    <p>كتب الخلصة و النهار اللي كتخلص فيه. الميزانيات ديال أيوب و حفصة تقدر تبدّلهم من بعد.</p>
+    <p>كتب الخلصة و النهار اللي كتخلص فيه. مصروف الدار كتكتبو كل نهار، و أيوب و حفصة كل واحد عندو ميزانيتو.</p>
     <div class="row2" style="margin-top:22px">
       <label class="field"><span>الدخل الشهري</span><input id="onb-inc" type="text" inputmode="decimal" placeholder="مثلا 6000" dir="ltr" style="text-align:right;font-size:1.2rem;font-weight:700"></label>
       <label class="field"><span>كتخلص نهار</span><input id="onb-sd" type="number" min="1" max="28" dir="ltr" value="${sd()}" style="text-align:right;font-size:1.2rem;font-weight:700"></label>
@@ -523,7 +531,16 @@ function viewOnboard(){
 }
 
 function walletCard(w,t){
-  const spent=t.byW[w.id]||0, left=w.budget-spent, pct=w.budget>0?Math.max(0,Math.min(100,left/w.budget*100)):0, c=wc(w);
+  const spent=t.byW[w.id]||0, c=wc(w), house=!(w.budget>0);
+  if(house){
+    const tIso=iso(today()); const todayV=t.ex.filter(x=>x.w===w.id&&x.date===tIso).reduce((a,x)=>a+x.amt,0); const n=t.ex.filter(x=>x.w===w.id).length;
+    return `<button class="wal wide" data-wallet="${w.id}" style="background:${c.bg};color:${c.fg}">
+      <span class="wal-h"><span class="wal-av" style="color:${c.bg}">${esc(w.name.replace(/^ال/,'').slice(0,1))}</span><span>مصروف ${esc(w.name)}</span><span class="wal-tag">كل نهار</span></span>
+      <span class="wal-row"><span><span class="wal-l">صرفتو هاد الشهر</span><b class="num">${nf.format(Math.round(spent))}</b></span><span class="wal-today"><small>اليوم</small><b class="num">${nf.format(Math.round(todayV))}</b></span></span>
+      <small>${n} مصروف · خضرة، حليب، خبز، جبن…</small>
+    </button>`;
+  }
+  const left=w.budget-spent, pct=Math.max(0,Math.min(100,left/w.budget*100));
   return `<button class="wal" data-wallet="${w.id}" style="background:${c.bg};color:${c.fg}">
     <span class="wal-h"><span class="wal-av" style="color:${c.bg}">${esc(w.name.slice(0,1))}</span><span>مصروف ${esc(w.name)}</span></span>
     <span class="wal-l">${left<0?'فايت ب':'باقي'}</span>
@@ -662,8 +679,9 @@ function insights(st){
       if(s>w.budget) out.push({e:'🚨',t:`<b>${esc(w.name)}</b> فات الميزانية ب ${money(s-w.budget)}.`});
       else if(s>w.budget*el/L*1.15) out.push({e:'⚡',t:`<b>${esc(w.name)}</b> كيصرف أسرع من العادة: صرف ${money(s)} من ${n0(w.budget)} و باقي <b class="num">${daysLeft()}</b> يوم.`});
       else out.push({e:'✅',t:`<b>${esc(w.name)}</b> ماشي مزيان: باقي ليه ${money(w.budget-s)}، يعني تقريبا ${money((w.budget-s)/daysLeft())} ف النهار.`}); });
-    const save=t.income-t.fixedTotal-W().reduce((a,w)=>a+w.budget,0);
-    if(t.income&&save>0) out.push({e:'💰',t:`إلا بقيتو ف الميزانية، كيبقى ليكم <b>${money(save)}</b> توفير ف آخر الشهر.`});
+    W().filter(w=>!(w.budget>0)).forEach(w=>{ const s=t.byW[w.id]||0; if(s>0) out.push({e:'🏠',t:`<b>مصروف ${esc(w.name)}</b>: ${money(s)} ف <b class="num">${Math.round(el)}</b> يوم، يعني تقريبا ${money(s/el)} ف النهار.`}); });
+    const save=t.income-t.fixedTotal-W().reduce((a,w)=>a+(w.budget||0),0)-W().filter(w=>!(w.budget>0)).reduce((a,w)=>a+(t.byW[w.id]||0)/el*L,0);
+    if(t.income&&save>0) out.push({e:'💰',t:`إلا بقيتو هاكا، كيبقى ليكم تقريبا <b>${money(save)}</b> توفير ف آخر الشهر.`});
   }
   const items={}; ex.forEach(x=>{const k=(x.note||'').trim(); if(!k) return; (items[k]=items[k]||{n:0,v:0}); items[k].n++; items[k].v+=x.amt;});
   const rep=Object.entries(items).filter(([,v])=>v.n>=3).sort((a,b)=>b[1].v-a[1].v)[0];
@@ -704,9 +722,9 @@ function viewDash(){
       <div class="dt-leg">${segs.map(s=>`<div><i style="background:${s.c}"></i><span>${esc(s.l)}<b>${money(s.v)}</b></span><em class="num">${total?Math.round(s.v/total*100):0}%</em></div>`).join('')}</div>
     </div>
   </div>
-  <section class="card"><h2><span class="h-t">الميزانيات</span> <small>${periodLabel(cur)}</small></h2>
-    ${W().map(w=>{const s=t.byW[w.id]||0, p=w.budget?Math.min(100,s/w.budget*100):0, over=s>w.budget; return `<button class="bud" data-wallet="${w.id}"><span class="bud-h">${wChip(w)}<span class="${over?'over':''}">${money(s)} / ${n0(w.budget)}</span></span><span class="bud-bar"><i style="width:${p}%;background:${over?'var(--red)':wc(w).bg}"></i></span></button>`}).join('')}
-  </section>
+  ${W().some(w=>w.budget>0)?'':'<!--'}<section class="card"><h2><span class="h-t">الميزانيات</span> <small>${periodLabel(cur)}</small></h2>
+    ${W().filter(w=>w.budget>0).map(w=>{const s=t.byW[w.id]||0, p=w.budget?Math.min(100,s/w.budget*100):0, over=s>w.budget; return `<button class="bud" data-wallet="${w.id}"><span class="bud-h">${wChip(w)}<span class="${over?'over':''}">${money(s)} / ${n0(w.budget)}</span></span><span class="bud-bar"><i style="width:${p}%;background:${over?'var(--red)':wc(w).bg}"></i></span></button>`}).join('')}
+  </section>${W().some(w=>w.budget>0)?'':'-->'}
   <section class="card"><h2><span class="h-t">الصرف نهار بنهار</span></h2>${lineChart()}</section>
   <section class="card"><h2><span class="h-t">الشهور</span> <small>كليكي على شهر</small></h2><div class="chart">${bars}</div>
     <div class="legend"><span><i style="background:${FIXED_C}"></i>شارجات</span>${W().map(w=>`<span><i style="background:${wc(w).bg}"></i>${esc(w.name)}</span>`).join('')}</div></section>
@@ -728,7 +746,7 @@ function viewSettings(){
     <div class="set-row"><div>المظهر</div><div class="seg">${[['light','فاتح'],['dark','غامق'],['auto','أوطو']].map(([v,l])=>`<button data-theme-set="${v}" aria-pressed="${(s.theme||'light')===v}">${l}</button>`).join('')}</div></div>
   </div></section>
   <section><h2><span class="h-t">الميزانيات</span> <small>كل واحد بوحدو</small></h2><div class="panel">
-    ${W().map(w=>`<button class="set-row" data-wedit="${w.id}" style="width:100%;text-align:start"><div>${wChip(w)}</div><span class="link">${money(w.budget)} ف الشهر</span></button>`).join('')}
+    ${W().map(w=>`<button class="set-row" data-wedit="${w.id}" style="width:100%;text-align:start"><div>${wChip(w)}</div><span class="link">${w.budget>0?money(w.budget)+' ف الشهر':'بلا حد'}</span></button>`).join('')}
   </div>
   ${W().length<4?'<button class="btn btn-ghost" data-act="add-wallet" style="margin-top:12px">+ زيد شخص / ميزانية</button>':''}
   <div class="sync">${syncMode==='cloud'?'✓ الداطا محفوظة ف الحساب ديالك.':'الداطا محفوظة ف هاد التيليفون.'}</div></section>
@@ -798,8 +816,8 @@ function walletSheet(w){
   const st=stats(cur), items=st.ex.filter(x=>x.w===w.id).sort((a,b)=>b.date.localeCompare(a.date)||b.ts-a.ts);
   const s=st.byW[w.id]||0;
   openSheet(`<h3>مصروف ${esc(w.name)}</h3>
-    <div class="wal wal-in" style="background:${wc(w).bg};color:${wc(w).fg}"><span class="wal-l">${w.budget-s<0?'فايت ب':'باقي'}</span><b class="num">${nf.format(Math.round(Math.abs(w.budget-s)))}</b><small>صرف ${n0(s)} من ${n0(w.budget)} · ${periodLabel(cur)}</small></div>
-    <div class="actions" style="margin:14px 0"><button class="btn btn-main" id="w-add">+ زيد مصروف ل ${esc(w.name)}</button><button class="btn btn-ghost" id="w-edit">بدّل الميزانية / السمية</button></div>
+    <div class="wal wal-in" style="background:${wc(w).bg};color:${wc(w).fg}">${w.budget>0?`<span class="wal-l">${w.budget-s<0?'فايت ب':'باقي'}</span><b class="num">${nf.format(Math.round(Math.abs(w.budget-s)))}</b><small>صرف ${n0(s)} من ${n0(w.budget)} · ${periodLabel(cur)}</small>`:`<span class="wal-l">صرفتو</span><b class="num">${nf.format(Math.round(s))}</b><small>${items.length} مصروف · ${periodLabel(cur)}</small>`}</div>
+    <div class="actions" style="margin:14px 0"><button class="btn btn-main" id="w-add">+ زيد مصروف ل ${esc(w.name)}</button><button class="btn btn-ghost" id="w-edit">${w.budget>0?'بدّل الميزانية / السمية':'حط ميزانية / بدّل السمية'}</button></div>
     <div class="panel">${items.length? items.map(expRow).join('') : `<div class="empty"><b>ما صرف والو هاد الشهر</b></div>`}</div>`);
   sheet.querySelector('#w-add').onclick=()=>{ closeSheet(); setTimeout(()=>expenseSheet(null,{w:w.id}),250); };
   sheet.querySelector('#w-edit').onclick=()=>walletEdit(w);
@@ -810,7 +828,7 @@ function walletEdit(w){
   const isNew=!w; w=w||{id:uid(),name:'',budget:1000,c:W().length%PAL.length};
   openSheet(`<h3>${isNew?'ميزانية جديدة':'بدّل '+esc(w.name)}</h3>
     <label class="field"><span>السمية</span><input id="we-name" type="text" value="${esc(w.name)}" placeholder="مثلا: الدار"></label>
-    <label class="field"><span>الميزانية ف الشهر (${cu()})</span><input id="we-b" type="text" inputmode="decimal" dir="ltr" value="${w.budget}"></label>
+    <label class="field"><span>الميزانية ف الشهر (${cu()}) — 0 = بلا حد</span><input id="we-b" type="text" inputmode="decimal" dir="ltr" value="${w.budget}"></label>
     <div class="field"><span>اللون</span><div class="wseg">${PAL.map((p,i)=>`<button data-c="${i}" aria-pressed="${w.c===i}" style="--wc:${p.bg};--wf:${p.fg}">●</button>`).join('')}</div></div>
     <div class="actions"><button class="btn btn-main" id="we-save">سجّل</button>${!isNew&&W().length>1?'<button class="btn btn-danger" id="we-del">حيد هاد الميزانية</button>':''}</div>`,'#we-name');
   let c=w.c;
