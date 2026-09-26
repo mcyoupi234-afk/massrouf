@@ -222,8 +222,6 @@ h2 small{font-family:"Readex Pro",sans-serif;font-weight:500;color:var(--mute);f
 .col .v{font-size:.58rem;color:var(--mute);font-weight:700;height:12px}
 .col .stack{width:74%;max-width:28px;display:flex;flex-direction:column;border:2px solid var(--line);border-radius:7px;overflow:hidden;background:var(--soft)}
 .col .stack i{display:block;width:100%}
-.col .stack i:first-child{background:var(--yellow)!important}
-.col .stack i:last-child{background:var(--blue)!important}
 .col small{font-size:.58rem;color:var(--mute);white-space:nowrap;overflow:hidden;max-width:100%;font-weight:700}
 .col.sel{background:var(--soft);outline:2px solid var(--line)}
 .col.sel small{color:var(--ink)}
@@ -234,6 +232,110 @@ h2 small{font-family:"Readex Pro",sans-serif;font-weight:500;color:var(--mute);f
 
 .toast{position:fixed;left:50%;top:calc(16px + env(safe-area-inset-top,0px));transform:translate(-50%,-20px);background:var(--yellow);color:#111;border:var(--bw) solid #111;box-shadow:3px 3px 0 #111;padding:9px 18px;border-radius:999px;font-size:.9rem;font-weight:800;opacity:0;pointer-events:none;transition:all .25s;z-index:60;white-space:nowrap}
 .toast.on{opacity:1;transform:translate(-50%,0)}
+/* v3 additions */
+.top-r{display:flex;align-items:center;gap:8px}
+.icon-btn.sq{width:44px;height:44px;border-radius:14px;background:var(--card);border:var(--bw) solid var(--line);box-shadow:3px 3px 0 var(--sh);font-size:1.3rem}
+.icon-btn.sq svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+.month{margin-top:12px;justify-content:space-between}
+.month h1{flex:1;font-size:.95rem!important}
+.muted-s{font-size:.8rem;color:var(--mute);font-weight:600}
+.card{background:var(--card);border:var(--bw) solid var(--line);border-radius:22px;box-shadow:4px 4px 0 var(--sh);padding:14px}
+section.card{margin-top:22px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:.76rem;font-weight:700;color:var(--mute)}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{width:12px;height:12px;border-radius:4px;border:2px solid var(--line);display:inline-block}
+.legend i.dash{height:4px;border:0;border-radius:2px}
+
+/* wallets */
+.wals{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.wal{border:var(--bw) solid #111;border-radius:22px;box-shadow:4px 4px 0 var(--sh);padding:12px 14px 14px;display:flex;flex-direction:column;gap:2px;text-align:start;transition:transform .1s,box-shadow .1s}
+.wal:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--sh)}
+.wal-h{display:flex;align-items:center;gap:8px;font-size:.84rem;font-weight:800}
+.wal-av{width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid #111;display:grid;place-items:center;font-family:var(--disp);font-weight:800;font-size:1rem;line-height:1}
+.wal-l{font-size:.74rem;font-weight:700;margin-top:6px;opacity:.9}
+.wal b{font-family:var(--disp);font-size:2.3rem;font-weight:800;line-height:1.05;text-align:right}
+.wal b.neg{text-decoration:underline wavy;text-underline-offset:6px}
+.wal-bar{display:block;height:14px;border:2px solid #111;border-radius:999px;background:rgba(0,0,0,.28);overflow:hidden;margin:6px 0 4px}
+.wal-bar i{display:block;height:100%;background:#fff;border-left:2px solid #111}
+.wal small{font-size:.72rem;font-weight:600;opacity:.95}
+.wal-in{box-shadow:4px 4px 0 #111}
+.wal-in b{font-size:3rem}
+.wchip{display:inline-block;padding:2px 10px;border-radius:999px;border:2px solid #111;font-size:.78rem;font-weight:800}
+
+.fixc{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;width:100%;text-align:start;background:var(--yellow);color:#111;border:var(--bw) solid #111;border-radius:20px;box-shadow:4px 4px 0 var(--sh);padding:12px 14px}
+.fixc-t{font-size:.9rem;font-weight:800}
+.fixc-t small{display:block;font-size:.74rem;font-weight:600}
+.fixc b{font-family:var(--disp);font-size:1.9rem;font-weight:800}
+.fixc-bar{grid-column:1/-1;display:block;height:12px;border:2px solid #111;border-radius:999px;background:#fff;overflow:hidden}
+.fixc-bar i{display:block;height:100%;background:#111}
+
+/* week stacked */
+.wk-stack{display:flex;flex-direction:column-reverse;width:100%;border:var(--bw) solid var(--line);border-radius:10px 10px 4px 4px;overflow:hidden;background:var(--soft)}
+.wk-stack i{display:block;width:100%;min-height:3px}
+.wk-col.today .wk-stack{box-shadow:0 0 0 3px var(--orange)}
+.wk-col.today .wk-d{color:var(--orange)}
+
+/* rows */
+.exp{grid-template-columns:14px 1fr auto!important}
+.exp-dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--line)}
+.day-split{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px;font-size:.84rem;font-weight:700}
+.day-split span{display:flex;align-items:center;gap:6px}
+.day-title b{font-family:var(--disp)}
+
+/* dashboard */
+.dt-row{display:flex;align-items:center;gap:14px;margin-top:8px}
+.dt-donut{position:relative;width:150px;height:150px;flex:none}
+.donut{width:150px;height:150px;display:block}
+.dt-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.dt-c b{font-family:var(--disp);font-size:1.7rem;font-weight:800}
+.dt-c small{font-size:.7rem;font-weight:700;color:var(--mute)}
+.dt-leg{flex:1;display:flex;flex-direction:column;gap:10px;min-width:0}
+.dt-leg div{display:grid;grid-template-columns:14px 1fr auto;gap:8px;align-items:center}
+.dt-leg i{width:14px;height:14px;border-radius:4px;border:2px solid var(--line)}
+.dt-leg span{font-size:.76rem;font-weight:600;color:var(--mute);line-height:1.3}
+.dt-leg span b{display:block;color:var(--ink);font-size:.92rem;font-weight:800;white-space:nowrap}
+.dt-leg em{font-style:normal;font-family:var(--disp);font-weight:800;font-size:1.05rem}
+.bud{display:block;width:100%;text-align:start;padding:8px 0}
+.bud+.bud{border-top:2px dashed var(--soft)}
+.bud-h{display:flex;justify-content:space-between;align-items:center;font-size:.86rem;font-weight:700;margin-bottom:6px}
+.bud-h .over{color:var(--red)}
+.bud-bar{display:block;height:18px;border:var(--bw) solid var(--line);border-radius:999px;background:var(--soft);overflow:hidden}
+.bud-bar i{display:block;height:100%;border-left:var(--bw) solid var(--line)}
+.lc{width:100%;height:auto;display:block;margin-top:4px}
+.chart{display:flex;align-items:flex-end;gap:5px;height:175px;margin-top:6px;padding-top:6px}
+.col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;padding:6px 0 4px;border-radius:12px;min-width:0;height:100%}
+.col .stack{width:74%;max-width:30px;display:flex;flex-direction:column-reverse;border:2px solid var(--line);border-radius:8px;overflow:hidden;background:var(--soft)}
+.col .stack i{display:block;width:100%;min-height:2px}
+.ins-e{width:40px;height:40px;border-radius:12px;background:var(--soft);border:2px solid var(--line);display:grid;place-items:center;font-size:1.1rem}
+.hb{padding:8px 0}
+.hb+.hb{border-top:2px dashed var(--soft)}
+.hb-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:.9rem}
+.hb-h small{color:var(--mute);font-weight:700}
+.hb-bar{height:14px;border:2px solid var(--line);border-radius:999px;background:var(--soft);overflow:hidden;margin-top:5px}
+.hb-bar i{display:block;height:100%;border-left:2px solid var(--line)}
+
+/* wallet selector */
+.wseg{display:flex;gap:8px;margin-bottom:14px}
+.wseg button{flex:1;padding:10px 8px;border-radius:14px;border:var(--bw) solid var(--line);background:var(--card);font-weight:800;font-size:.95rem;color:var(--ink)}
+.wseg button[aria-pressed="true"]{background:var(--wc);color:var(--wf);box-shadow:3px 3px 0 var(--sh)}
+
+/* calculator */
+.calc{margin-top:4px}
+.calc-disp{display:flex;align-items:center;gap:10px;background:var(--card);border:var(--bw) solid var(--line);border-radius:18px;box-shadow:4px 4px 0 var(--sh);padding:8px 12px;margin-bottom:12px}
+.calc-c{width:44px;height:44px;border-radius:12px;background:var(--pinky);border:2px solid var(--line);font-weight:800;font-size:1.05rem;flex:none}
+.calc-v{flex:1;text-align:left;direction:ltr;min-width:0}
+.calc-expr{font-size:.9rem;color:var(--mute);font-weight:700;min-height:1.1em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.calc-res{font-family:var(--disp);font-size:2.4rem;font-weight:800;line-height:1.1;white-space:nowrap}
+.calc-res small{font-family:"Readex Pro",sans-serif;font-size:.9rem;color:var(--mute)}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;direction:ltr}
+.key{height:52px;border-radius:14px;background:var(--card);border:2px solid var(--line);box-shadow:2px 2px 0 var(--sh);font-family:var(--disp);font-size:1.45rem;font-weight:800;transition:transform .06s,box-shadow .06s}
+.key:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--sh)}
+.key.op{background:var(--yellow);color:#111}
+.save-row{display:flex;gap:10px;margin-top:14px;align-items:stretch}
+.save-row input{flex:0 0 42%;padding:10px;border-radius:14px;border:var(--bw) solid var(--line);background:var(--card);font-weight:700}
+.save-row .btn{flex:1}
+.sheet .quick{margin:-4px 0 12px}
+
 [hidden]{display:none!important}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
@@ -261,32 +363,27 @@ const KEY='massrouf-v1';
 const MONTHS=['يناير','فبراير','مارس','أبريل','ماي','يونيو','يوليوز','غشت','شتنبر','أكتوبر','نونبر','دجنبر'];
 const WD=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
 const WD_SHORT=['إ','ث','ر','خ','ج','س','ح']; // Monday → Sunday
-const CATS=[
-  {id:'hanout',e:'🏪',n:'حانوت'},
-  {id:'food',e:'🛒',n:'بيم / مرجان'},
-  {id:'out',e:'☕',n:'قهوة و خرجات'},
-  {id:'trans',e:'⛽',n:'ترانسبور و ليصانص'},
-  {id:'subs',e:'📺',n:'اشتراكات (نتفليكس…)'},
-  {id:'phone',e:'📱',n:'تيليفون و نت'},
-  {id:'home',e:'🏠',n:'دار'},
-  {id:'health',e:'💊',n:'صحة'},
-  {id:'clothes',e:'👕',n:'حوايج'},
-  {id:'family',e:'👨‍👩‍👧',n:'العائلة'},
-  {id:'gift',e:'🎁',n:'هدايا'},
-  {id:'other',e:'✳️',n:'أخرى'}
-];
+const WDS=['ح','ن','ث','ر','خ','ج','س'];      // by getDay()
 const CUR={DH:'درهم','€':'€','$':'$'};
-const catOf=id=>CATS.find(c=>c.id===id)||CATS[CATS.length-1];
+const PAL=[{bg:'#2F5BFF',fg:'#FFFFFF'},{bg:'#FF7AA8',fg:'#111111'},{bg:'#18B36B',fg:'#FFFFFF'},{bg:'#8B5CF6',fg:'#FFFFFF'}];
+const FIXED_C='#FFC93C';
+const LEGACY={hanout:'حانوت',food:'بيم / مرجان',out:'قهوة و خرجات',trans:'ترانسبور',subs:'اشتراكات',phone:'تيليفون',home:'دار',health:'صحة',clothes:'حوايج',family:'العائلة',gift:'هدايا',other:'مصروف'};
 
 /* ---------- state ---------- */
-function blank(){return {v:2,updatedAt:0,settings:{income:0,currency:'DH',setup:false,startDay:25,theme:'light',sv:2},fixed:[],months:{},exp:[]}}
+const defWallets=()=>[{id:'ayoub',name:'أيوب',budget:1000,c:0},{id:'hafsa',name:'حفصة',budget:1000,c:1}];
+function blank(){return {v:3,updatedAt:0,settings:{income:0,currency:'DH',setup:false,startDay:25,theme:'light',sv:2,wallets:defWallets(),lastW:'ayoub'},fixed:[],months:{},exp:[]}}
 function migrate(s){
-  if(!s||(s.v!==1&&s.v!==2)) return null;
+  if(!s||![1,2,3].includes(s.v)) return null;
   if(!Array.isArray(s.exp)) s.exp=[];
   Object.values(s.months||{}).forEach(m=>{ if(Array.isArray(m.exp)){ s.exp.push(...m.exp); delete m.exp; } if(!m.paid) m.paid={}; });
+  s.settings=s.settings||{};
   if(!s.settings.startDay) s.settings.startDay=25;
   if(!s.settings.sv){ s.settings.theme='light'; s.settings.sv=2; }
-  s.months=s.months||{}; s.fixed=s.fixed||[]; s.v=2;
+  if(!Array.isArray(s.settings.wallets)||!s.settings.wallets.length) s.settings.wallets=defWallets();
+  const w0=s.settings.wallets[0].id;
+  if(!s.settings.lastW) s.settings.lastW=w0;
+  s.exp.forEach(x=>{ if(!x.w) x.w=w0; if(!x.note&&x.cat) x.note=LEGACY[x.cat]||'مصروف'; delete x.cat; });
+  s.months=s.months||{}; s.fixed=s.fixed||[]; s.v=3;
   return s;
 }
 let state=blank();
@@ -298,23 +395,29 @@ const mk=(y,m)=>y+'-'+pad(m+1);
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 const today=()=>{const d=new Date(); d.setHours(12,0,0,0); return d;};
 const sd=()=>Math.min(28,Math.max(1,state.settings.startDay||1));
+const W=()=>state.settings.wallets;
+const wOf=id=>W().find(w=>w.id===id)||W()[0];
+const wc=w=>PAL[(w&&w.c||0)%PAL.length];
 
-/* period = from startDay of month m to the day before startDay of month m+1 */
 function periodOf(d){ let y=d.getFullYear(), m=d.getMonth(); if(d.getDate()<sd()){ m--; if(m<0){m=11;y--;} } return {y,m}; }
 function range(p){ const s=new Date(p.y,p.m,sd(),12), e=new Date(p.y,p.m+1,sd(),12); return {s,e,si:iso(s),ei:iso(e)}; }
 function days(p){ const r=range(p), out=[]; for(let d=new Date(r.s); d<r.e; d.setDate(d.getDate()+1)) out.push(new Date(d)); return out; }
+function shift(p,n){ let m=p.m+n, y=p.y; y+=Math.floor(m/12); m=((m%12)+12)%12; return {y,m}; }
 let cur=periodOf(today());
-let tab='month';
-let selDate=iso(today());
+let tab='month', selDate=iso(today()), dRange='month';
 const isCurrent=()=>{const p=periodOf(today()); return p.y===cur.y&&p.m===cur.m;};
+const sameP=(a,b)=>a.y===b.y&&a.m===b.m;
 function periodData(k){ if(!state.months[k]) state.months[k]={income:null,paid:{}}; if(!state.months[k].paid) state.months[k].paid={}; return state.months[k]; }
 function periodExp(p){ const r=range(p); return state.exp.filter(x=>x.date>=r.si&&x.date<r.ei); }
-function shift(p,n){ let m=p.m+n, y=p.y; y+=Math.floor(m/12); m=((m%12)+12)%12; return {y,m}; }
-function stats(p){ const md=periodData(mk(p.y,p.m)), ex=periodExp(p); const spent=ex.reduce((a,x)=>a+x.amt,0);
-  const fixedPaid=state.fixed.filter(f=>md.paid[f.id]).reduce((a,f)=>a+f.amount,0); return {p,ex,spent,fixedPaid,total:spent+fixedPaid}; }
-function shortLabel(p){ return MONTHS[sd()>15?(p.m+1)%12:p.m]; }
-let dRange='month';
+function stats(p){ const md=periodData(mk(p.y,p.m)), ex=periodExp(p); const byW={}; W().forEach(w=>byW[w.id]=0); ex.forEach(x=>byW[x.w]=(byW[x.w]||0)+x.amt);
+  const spent=ex.reduce((a,x)=>a+x.amt,0); const fixedPaid=state.fixed.filter(f=>md.paid[f.id]).reduce((a,f)=>a+f.amount,0);
+  return {p,ex,spent,fixedPaid,byW,total:spent+fixedPaid}; }
+function totals(){ const st=stats(cur), md=periodData(mk(cur.y,cur.m));
+  const income= md.income!=null ? md.income : state.settings.income;
+  const fixedTotal=state.fixed.reduce((a,f)=>a+f.amount,0);
+  return {...st,income,fixedTotal,md,left:income-fixedTotal-st.spent}; }
 function fitSel(){ const r=range(cur); if(!(selDate>=r.si&&selDate<r.ei)) selDate= isCurrent()? iso(today()) : r.si; }
+const daysLeft=()=>Math.max(1,Math.round((range(cur).e-today())/864e5));
 
 /* ---------- persistence: phone + claude account ---------- */
 let db=null, docPath=null, saving=false, again=false, timer=null, syncMode='local';
@@ -353,36 +456,55 @@ async function pushRemote(){
 
 /* ---------- helpers ---------- */
 const nf=new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2});
-function money(v){ return '<span class="num">'+nf.format(Math.round(v*100)/100)+'</span> '+CUR[state.settings.currency]; }
+const cu=()=>CUR[state.settings.currency];
+function money(v){ return '<span class="num">'+nf.format(Math.round(v*100)/100)+'</span> '+cu(); }
+const n0=v=>'<span class="num">'+nf.format(Math.round(v))+'</span>';
 const compact=v=> v>=1000 ? (Math.round(v/100)/10).toString().replace('.',',')+'k' : String(Math.round(v));
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function toast(t){const el=document.getElementById('toast'); el.textContent=t; el.classList.add('on'); clearTimeout(toast.t); toast.t=setTimeout(()=>el.classList.remove('on'),1800);}
 const dLabel=s=>{const d=new Date(s+'T12:00'); return d.getDate()+' '+MONTHS[d.getMonth()];};
 function periodLabel(p){ if(sd()===1) return MONTHS[p.m]+' <span class="num">'+p.y+'</span>'; const r=range(p), e=new Date(r.e); e.setDate(e.getDate()-1); return '<span class="num">'+r.s.getDate()+'</span> '+MONTHS[r.s.getMonth()]+' – <span class="num">'+e.getDate()+'</span> '+MONTHS[e.getMonth()]; }
-function totals(){
-  const k=mk(cur.y,cur.m), md=periodData(k), ex=periodExp(cur);
-  const income= md.income!=null ? md.income : state.settings.income;
-  const fixedTotal=state.fixed.reduce((a,f)=>a+f.amount,0);
-  const fixedPaid=state.fixed.filter(f=>md.paid[f.id]).reduce((a,f)=>a+f.amount,0);
-  const spent=ex.reduce((a,x)=>a+x.amt,0);
-  return {income,fixedTotal,fixedPaid,spent,left:income-fixedTotal-spent,md,ex};
-}
+function shortLabel(p){ return MONTHS[sd()>15?(p.m+1)%12:p.m]; }
+const wChip=w=>`<span class="wchip" style="background:${wc(w).bg};color:${wc(w).fg}">${esc(w.name)}</span>`;
+const ICON={
+  gear:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>',
+  calc:'<svg viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="3"/><rect x="8" y="5.5" width="8" height="4" rx="1"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 16.5h.01M12 16.5h.01M15.5 16.5h.01"/></svg>',
+  up:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>',
+  down:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l10 10M17 9v8H9"/></svg>'
+};
+
+/* ---------- calculator ---------- */
+function evalExpr(e){ if(!e) return NaN; let s=e.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-').replace(/[*/+\-.]+$/,''); if(!s||!/^[0-9+\-*/.]+$/.test(s)) return NaN; try{ const v=Function('"use strict";return ('+s+')')(); return isFinite(v)?v:NaN; }catch(x){return NaN;} }
+const OPS='÷×−+';
+function calcHtml(){ return `<div class="calc"><div class="calc-disp"><button class="calc-c" data-k="C" aria-label="مسح">C</button><div class="calc-v"><div class="calc-expr num"></div><div class="calc-res"><span class="num">0</span> <small>${cu()}</small></div></div></div>
+  <div class="keys">${['7','8','9','÷','4','5','6','×','1','2','3','−','.','0','⌫','+'].map(k=>`<button class="key ${OPS.includes(k)?'op':''}" data-k="${k}" aria-label="${k==='⌫'?'مسح رقم':k}">${k}</button>`).join('')}</div></div>`; }
+function bindCalc(root,init){ let e=init||''; const ex=root.querySelector('.calc-expr'), rs=root.querySelector('.calc-res .num');
+  const upd=()=>{ ex.textContent=/[÷×−+]/.test(e.slice(1))?e:''; const v=evalExpr(e); rs.textContent= e ? (isFinite(v)? nf.format(Math.round(v*100)/100) : '…') : '0'; };
+  root.addEventListener('click',ev=>{ const b=ev.target.closest('[data-k]'); if(!b) return; const k=b.dataset.k;
+    if(k==='C') e=''; else if(k==='⌫') e=e.slice(0,-1);
+    else if(OPS.includes(k)){ if(!e){ if(k==='−') e='−'; } else if(OPS.includes(e.slice(-1))) e=e.slice(0,-1)+k; else e+=k; }
+    else if(k==='.'){ const last=e.split(/[÷×−+]/).pop(); if(!last.includes('.')) e+=(last===''?'0.':'.'); }
+    else if(e.length<28) e+=k;
+    if(navigator.vibrate) try{navigator.vibrate(8)}catch(x){}
+    upd(); });
+  upd(); return {val:()=>evalExpr(e)}; }
 
 /* ---------- views ---------- */
 const app=document.getElementById('app'), nav=document.getElementById('nav');
 
-function topBar(){
+function topBar(withPeriod=true){
   return `<div class="top">
     <span class="brand">مصروفي</span>
     <div class="top-r">
-    <div class="month">
-      <button class="icon-btn" data-act="prev" aria-label="الشهر اللي فات">›</button>
-      <h1>${periodLabel(cur)}</h1>
-      <button class="icon-btn" data-act="next" aria-label="الشهر الجاي">‹</button>
+      <button class="icon-btn sq" data-act="calc" aria-label="الحاسبة">${ICON.calc}</button>
+      <button class="icon-btn sq" data-tab-go="settings" aria-label="الإعدادات">${ICON.gear}</button>
     </div>
-    <button class="icon-btn gear" data-tab-go="settings" aria-label="الإعدادات"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></button>
-    </div>
-  </div>`;
+  </div>
+  ${withPeriod?`<div class="month">
+    <button class="icon-btn" data-act="prev" aria-label="الشهر اللي فات">›</button>
+    <h1>${periodLabel(cur)}</h1>
+    <button class="icon-btn" data-act="next" aria-label="الشهر الجاي">‹</button>
+  </div>`:''}`;
 }
 
 function viewOnboard(){
@@ -390,63 +512,66 @@ function viewOnboard(){
   return `<div class="onb">
     <div class="brand">مصروفي</div>
     <div class="bank"><div class="big">شحال كتدخّل<br>ف الشهر؟</div></div>
-    <p>كتب الخلصة ديالك و النهار اللي كتخلص فيه، باش نحسبو الشهر ديالك من الخلصة للخلصة.</p>
+    <p>كتب الخلصة و النهار اللي كتخلص فيه. الميزانيات ديال أيوب و حفصة تقدر تبدّلهم من بعد.</p>
     <div class="row2" style="margin-top:22px">
-      <label class="field"><span>الدخل الشهري</span>
-        <input id="onb-inc" type="text" inputmode="decimal" placeholder="مثلا 6000" dir="ltr" style="text-align:right;font-size:1.2rem;font-weight:700"></label>
-      <label class="field"><span>كتخلص نهار</span>
-        <input id="onb-sd" type="number" min="1" max="28" dir="ltr" value="${sd()}" style="text-align:right;font-size:1.2rem;font-weight:700"></label>
+      <label class="field"><span>الدخل الشهري</span><input id="onb-inc" type="text" inputmode="decimal" placeholder="مثلا 6000" dir="ltr" style="text-align:right;font-size:1.2rem;font-weight:700"></label>
+      <label class="field"><span>كتخلص نهار</span><input id="onb-sd" type="number" min="1" max="28" dir="ltr" value="${sd()}" style="text-align:right;font-size:1.2rem;font-weight:700"></label>
     </div>
-    <div class="field"><span>العملة</span>
-      <div class="seg" style="width:max-content">${Object.keys(CUR).map(c=>`<button data-cur="${c}" aria-pressed="${state.settings.currency===c}">${CUR[c]}</button>`).join('')}</div></div>
+    <div class="field"><span>العملة</span><div class="seg" style="width:max-content">${Object.keys(CUR).map(c=>`<button data-cur="${c}" aria-pressed="${state.settings.currency===c}">${CUR[c]}</button>`).join('')}</div></div>
     <button class="btn btn-main" data-act="start" style="margin-top:26px">يلاه نبداو</button>
   </div>`;
+}
+
+function walletCard(w,t){
+  const spent=t.byW[w.id]||0, left=w.budget-spent, pct=w.budget>0?Math.max(0,Math.min(100,left/w.budget*100)):0, c=wc(w);
+  return `<button class="wal" data-wallet="${w.id}" style="background:${c.bg};color:${c.fg}">
+    <span class="wal-h"><span class="wal-av" style="color:${c.bg}">${esc(w.name.slice(0,1))}</span><span>مصروف ${esc(w.name)}</span></span>
+    <span class="wal-l">${left<0?'فايت ب':'باقي'}</span>
+    <b class="num ${left<0?'neg':''}">${nf.format(Math.round(Math.abs(left)))}</b>
+    <span class="wal-bar"><i style="width:${pct}%"></i></span>
+    <small>صرف ${n0(spent)} من ${n0(w.budget)}</small>
+  </button>`;
 }
 
 function viewMonth(){
   const t=totals();
   const base=Math.max(t.income, t.fixedTotal+t.spent, 1);
-  const wF=t.fixedTotal/base*100, wS=t.spent/base*100, wL=Math.max(t.left,0)/base*100;
+  const segs=[`<span style="width:${t.fixedTotal/base*100}%;background:${FIXED_C}"></span>`].concat(W().map(w=>`<span style="width:${(t.byW[w.id]||0)/base*100}%;background:${wc(w).bg}"></span>`)).join('')+`<span style="width:${Math.max(t.left,0)/base*100}%;background:#fff"></span>`;
   let compare='';
   { const prev=stats(shift(cur,-1)); let prevSpent=prev.spent;
-    if(isCurrent()){ const el=Math.round((today()-range(cur).s)/864e5)+1; const lim=new Date(range(prev.p).s); lim.setDate(lim.getDate()+el); const li=iso(lim);
-      prevSpent=prev.ex.filter(x=>x.date<li).reduce((a,x)=>a+x.amt,0); }
+    if(isCurrent()){ const el=Math.round((today()-range(cur).s)/864e5)+1; const lim=new Date(range(prev.p).s); lim.setDate(lim.getDate()+el); const li=iso(lim); prevSpent=prev.ex.filter(x=>x.date<li).reduce((a,x)=>a+x.amt,0); }
     const diff=t.spent-prevSpent, up=diff>0;
-    const arrow= up? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>' : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l10 10M17 9v8H9"/></svg>';
-    compare= prev.ex.length ? `<button class="cmp ${up?'up':'down'}" data-tab-go="dash"><span class="cmp-ic">${arrow}</span><span class="cmp-t">${up?'كتخسر كثر':'كتخسر قل'} من الشهر اللي فات<small>${isCurrent()?'ف نفس الوقت':'الشهر كامل'}: ${money(prevSpent)}</small></span><b class="num">${up?'+':'−'}${nf.format(Math.round(Math.abs(diff)))}</b></button>` : '';
+    if(prev.ex.length) compare=`<button class="cmp ${up?'up':'down'}" data-tab-go="dash"><span class="cmp-ic">${up?ICON.up:ICON.down}</span><span class="cmp-t">${up?'كتصرفو كثر':'كتصرفو قل'} من الشهر اللي فات<small>${isCurrent()?'ف نفس الوقت':'الشهر كامل'}: ${money(prevSpent)}</small></span><b class="num">${up?'+':'−'}${nf.format(Math.round(Math.abs(diff)))}</b></button>`;
   }
-  // last 7 days
-  const td=today(); const wk=[]; for(let i=6;i>=0;i--){ const d=new Date(td); d.setDate(d.getDate()-i); const k=iso(d); wk.push({k,d,v:state.exp.filter(x=>x.date===k).reduce((a,x)=>a+x.amt,0)}); }
+  // last 7 days, stacked by wallet
+  const td=today(), wk=[]; for(let i=6;i>=0;i--){ const d=new Date(td); d.setDate(d.getDate()-i); const k=iso(d); const ex=state.exp.filter(x=>x.date===k); const byW={}; ex.forEach(x=>byW[x.w]=(byW[x.w]||0)+x.amt); wk.push({k,d,v:ex.reduce((a,x)=>a+x.amt,0),byW}); }
   const wmax=Math.max(1,...wk.map(x=>x.v));
-  const WDS=['ح','ن','ث','ر','خ','ج','س'];
-  const week=`<section class="wk"><div class="wk-h"><h2 style="margin:0"><span class="h-t">آخر 7 يام</span></h2><small>اليوم: ${money(wk[6].v)}</small></div>
-    <div class="wk-bars">${wk.map((x,i)=>`<button class="wk-col" data-go-day="${x.k}" aria-label="${dLabel(x.k)}: ${Math.round(x.v)}"><span class="wk-v num">${x.v?compact(x.v):''}</span><i class="${i===6?'today':''}" style="height:${Math.max(4,x.v/wmax*100)}px"></i><span class="wk-d">${WDS[x.d.getDay()]}</span></button>`).join('')}</div></section>`;
-  const byCat={}; t.ex.forEach(x=>byCat[x.cat]=(byCat[x.cat]||0)+x.amt);
-  const cats=Object.entries(byCat).sort((a,b)=>b[1]-a[1]);
-  const maxC=cats.length?cats[0][1]:1;
-  const catHtml=cats.length? `<div class="panel">${cats.map(([id,v])=>{const c=catOf(id);return `<div class="cat-row"><span class="cat-emo">${c.e}</span><div><div style="display:flex;justify-content:space-between;font-size:.92rem"><span>${c.n}</span><span class="num" style="color:var(--mute)">${Math.round(v/t.spent*100)}%</span></div><div class="bar"><i style="width:${v/maxC*100}%"></i></div></div><b>${money(v)}</b></div>`}).join('')}</div>`
-    : `<div class="panel"><div class="empty"><b>مازال ما صرفتي والو</b>كليكي على + باش تزيد أول مصروف.</div></div>`;
+  const week=`<section class="card wk"><div class="wk-h"><h2 style="margin:0"><span class="h-t">آخر 7 يام</span></h2><small>اليوم: ${money(wk[6].v)}</small></div>
+    <div class="wk-bars">${wk.map((x,i)=>`<button class="wk-col ${i===6?'today':''}" data-go-day="${x.k}" aria-label="${dLabel(x.k)}: ${Math.round(x.v)}"><span class="wk-v num">${x.v?compact(x.v):''}</span><span class="wk-stack" style="height:${Math.max(6,x.v/wmax*110)}px">${x.v?W().map(w=>x.byW[w.id]?`<i style="flex-grow:${x.byW[w.id]};background:${wc(w).bg}"></i>`:'').join(''):''}</span><span class="wk-d">${WDS[x.d.getDay()]}</span></button>`).join('')}</div>
+    <div class="legend">${W().map(w=>`<span><i style="background:${wc(w).bg}"></i>${esc(w.name)}</span>`).join('')}</div></section>`;
+  const fpct=t.fixedTotal?t.fixedPaid/t.fixedTotal*100:0;
   return topBar()+`
   <div class="hero">
     <div class="bank">
-      <div class="bank-top"><span>${t.left>=0?'باقي ليك حتى للخلصة':'فايت الدخل ب'}</span><span class="pill">${isCurrent()?`<span class="num">${Math.max(1,Math.round((range(cur).e-today())/864e5))}</span> يوم`:`<span class="num">${t.income?Math.max(0,Math.round(t.left/t.income*100)):0}%</span>`}</span></div>
-      <div class="big ${t.left<0?'neg':''}"><span class="num">${nf.format(Math.round(Math.abs(t.left)))}</span><span class="cur">${CUR[state.settings.currency]}</span></div>
-      <div class="strip" aria-hidden="true"><span class="s-fixed" style="width:${wF}%"></span><span class="s-spend" style="width:${wS}%"></span><span class="s-left" style="width:${wL}%"></span></div>
-      <div class="bank-foot"><span>${t.md.income!=null?'دخل هاد الشهر':'الدخل'} <span class="num">${nf.format(t.income)}</span></span><button data-act="edit-income">بدّل</button></div>
+      <div class="bank-top"><span>${t.left>=0?'باقي ليكم حتى للخلصة':'فايت الدخل ب'}</span><span class="pill">${isCurrent()?`<span class="num">${daysLeft()}</span> يوم`:`<span class="num">${t.income?Math.max(0,Math.round(t.left/t.income*100)):0}%</span>`}</span></div>
+      <div class="big ${t.left<0?'neg':''}"><span class="num">${nf.format(Math.round(Math.abs(t.left)))}</span><span class="cur">${cu()}</span></div>
+      <div class="strip" aria-hidden="true">${segs}</div>
+      <div class="bank-foot"><span>${t.md.income!=null?'دخل هاد الشهر':'الدخل'} ${n0(t.income)}</span><button data-act="edit-income">بدّل</button></div>
     </div>
-    <div class="bento">
-      <button class="b b-fixed" data-tab-go="fixed">الشارجات الثابتة<b class="num">${nf.format(Math.round(t.fixedTotal))}</b><small>خلّصتي ${money(t.fixedPaid)}</small></button>
-      <button class="b b-spend" data-tab-go="cal">مصروف كل نهار<b class="num">${nf.format(Math.round(t.spent))}</b><small>${t.ex.length} مصروف</small></button>
-    </div>
+    <div class="wals">${W().map(w=>walletCard(w,t)).join('')}</div>
+    <button class="fixc" data-tab-go="fixed">
+      <span class="fixc-t">الشارجات الثابتة<small>خلّصتي ${n0(t.fixedPaid)} من ${n0(t.fixedTotal)}</small></span>
+      <b class="num">${nf.format(Math.round(t.fixedTotal))}</b>
+      <span class="fixc-bar"><i style="width:${fpct}%"></i></span>
+    </button>
     ${compare}
   </div>
-  ${isCurrent()?week:''}
-  <section><h2><span class="h-t">فين مشاو الفلوس</span></h2>${catHtml}</section>`;
+  ${isCurrent()?week:''}`;
 }
 
 function expRow(x){
-  const c=catOf(x.cat);
-  return `<button class="exp" data-exp="${x.id}"><span class="cat-emo">${c.e}</span><span><span class="t">${esc(x.note)||c.n}</span><br><span class="n">${c.n}</span></span><span class="a">${money(x.amt)}</span></button>`;
+  const w=wOf(x.w);
+  return `<button class="exp" data-exp="${x.id}"><span class="exp-dot" style="background:${wc(w).bg}"></span><span><span class="t">${esc(x.note)||'مصروف'}</span><br><span class="n">${esc(w.name)} · ${dLabel(x.date)}</span></span><span class="a">${money(x.amt)}</span></button>`;
 }
 
 function viewCal(){
@@ -465,83 +590,18 @@ function viewCal(){
   });
   const items=ex.filter(x=>x.date===selDate).sort((a,b)=>a.ts-b.ts);
   const sum=items.reduce((a,x)=>a+x.amt,0);
+  const byW={}; items.forEach(x=>byW[x.w]=(byW[x.w]||0)+x.amt);
   const sd0=new Date(selDate+'T12:00');
   return topBar()+`<section style="margin-top:16px">
     <div class="cal-head">${WD_SHORT.map(w=>`<span>${w}</span>`).join('')}</div>
     <div class="cal">${cells}</div>
   </section>
   <section class="day-card">
-    <div class="day-title"><div><div style="font-size:.8rem;color:var(--mute)">${selDate===tIso?'اليوم · ':''}${WD[sd0.getDay()]}</div><b>${dLabel(selDate)}</b></div><div style="text-align:end"><div style="font-size:.8rem;color:var(--mute)">خسرتي</div><b style="color:var(--coral)">${money(sum)}</b></div></div>
-    <div class="panel">${items.length? items.map(expRow).join('') : `<div class="empty"><b>ما كاين والو ف هاد النهار</b>زيد اللي شريتي، مثلا: حانوت — حليب و دانون</div>`}</div>
-    <button class="btn btn-main" data-act="add-day" style="margin-top:12px">+ زيد مصروف ف ${dLabel(selDate)}</button>
+    <div class="day-title"><div><div class="muted-s">${selDate===tIso?'اليوم · ':''}${WD[sd0.getDay()]}</div><b>${dLabel(selDate)}</b></div><div style="text-align:end"><div class="muted-s">صرفتو</div><b>${money(sum)}</b></div></div>
+    ${items.length?`<div class="day-split">${W().map(w=>byW[w.id]?`<span>${wChip(w)} ${money(byW[w.id])}</span>`:'').join('')}</div>`:''}
+    <div class="panel">${items.length? items.map(expRow).join('') : `<div class="empty"><b>ما كاين والو ف هاد النهار</b>كتب شنو شريتي، مثلا: حليب و دانون — 16</div>`}</div>
+    <button class="btn btn-main" data-act="add-day" style="margin-top:14px">+ زيد مصروف ف ${dLabel(selDate)}</button>
   </section>`;
-}
-
-function insights(periods,st){
-  const out=[]; const ex=st.flatMap(x=>x.ex); const spent=ex.reduce((a,x)=>a+x.amt,0);
-  if(!ex.length) return out;
-  const byCat={}; ex.forEach(x=>byCat[x.cat]=(byCat[x.cat]||0)+x.amt);
-  const [tc,tv]=Object.entries(byCat).sort((a,b)=>b[1]-a[1])[0];
-  out.push({e:catOf(tc).e,t:`<b>${catOf(tc).n}</b> واكل <b class="num">${Math.round(tv/spent*100)}%</b> من المصاريف ديالك (${money(tv)}).`});
-  // vs previous period by category
-  const last=st[st.length-1], prev=stats(shift(last.p,-1));
-  if(prev.ex.length&&last.ex.length){
-    const a={},b={}; last.ex.forEach(x=>a[x.cat]=(a[x.cat]||0)+x.amt); prev.ex.forEach(x=>b[x.cat]=(b[x.cat]||0)+x.amt);
-    let best=null; Object.keys(a).forEach(k=>{const d=a[k]-(b[k]||0); if(d>0&&(!best||d>best.d)) best={k,d};});
-    if(best) out.push({e:'⚠️',t:`<b>${catOf(best.k).n}</b> طلعات ب <b>${money(best.d)}</b> على الشهر اللي فات.`});
-  }
-  // repeated items
-  const items={}; ex.forEach(x=>{const k=(x.note||'').trim(); if(!k) return; (items[k]=items[k]||{n:0,v:0}); items[k].n++; items[k].v+=x.amt;});
-  const rep=Object.entries(items).filter(([,v])=>v.n>=4).sort((a,b)=>b[1].v-a[1].v)[0];
-  if(rep) out.push({e:'🔁',t:`شريتي <b>${esc(rep[0])}</b> <b class="num">${rep[1].n}</b> مرة = ${money(rep[1].v)}. إلا نقصتي النص، توفر ${money(rep[1].v/2)}.`});
-  // weekday
-  const wd=[0,0,0,0,0,0,0]; ex.forEach(x=>wd[new Date(x.date+'T12:00').getDay()]+=x.amt);
-  const wi=wd.indexOf(Math.max(...wd)); if(wd[wi]>0) out.push({e:'📆',t:`أكثر نهار كتخسر فيه هو <b>${WD[wi]}</b> (${money(wd[wi])}).`});
-  // end of period
-  const done=st.filter(x=>x.ex.length&&!( x.p.y===periodOf(today()).y && x.p.m===periodOf(today()).m ));
-  if(done.length){ let first=0,lastT=0; done.forEach(x=>{const r=range(x.p), L=(r.e-r.s)/864e5, third=L/3;
-      x.ex.forEach(e=>{const d=(new Date(e.date+'T12:00')-r.s)/864e5; if(d<third) first+=e.amt; else if(d>=2*third) lastT+=e.amt;});});
-    if(first+lastT>0){ const hi=lastT>first; out.push({e:hi?'🌙':'☀️',t: hi?`ف <b>آخر الشهر</b> كتخسر كثر (${money(lastT)}) من اللول (${money(first)}). رد البال قبل الخلصة.`:`ف <b>اللول ديال الشهر</b> كتخسر كثر (${money(first)}) من الآخر (${money(lastT)}). غالبا ملي كتخلص كتفلت اليد 😅`}); } }
-  return out;
-}
-
-function viewDash(){
-  const n= dRange==='month'?1: dRange==='3m'?3:12;
-  const periods=[]; for(let i=n-1;i>=0;i--) periods.push(shift(cur,-i));
-  const st=periods.map(stats);
-  const spent=st.reduce((a,x)=>a+x.spent,0), fixed=st.reduce((a,x)=>a+x.fixedPaid,0), total=spent+fixed;
-  const ex=st.flatMap(x=>x.ex);
-  const rangeTxt= dRange==='month'? periodLabel(cur) : 'آخر '+n+' شهور';
-  // chart
-  const cn= dRange==='year'?12:6; const cp=[]; for(let i=cn-1;i>=0;i--) cp.push(stats(shift(cur,-i)));
-  const cmax=Math.max(1,...cp.map(x=>x.total));
-  const chart=cp.map(x=>{const sel=x.p.y===cur.y&&x.p.m===cur.m; return `<button class="col ${sel?'sel':''}" data-period="${x.p.y}-${x.p.m}" aria-label="${shortLabel(x.p)}: ${Math.round(x.total)}">
-    <span class="v num">${x.total?compact(x.total):''}</span>
-    <span class="stack" style="height:${Math.max(3,x.total/cmax*100)}%"><i style="height:${x.total?x.fixedPaid/x.total*100:0}%;background:var(--amber)"></i><i style="height:${x.total?x.spent/x.total*100:0}%;background:var(--coral)"></i></span>
-    <small>${shortLabel(x.p)}</small></button>`}).join('');
-  // categories
-  const byCat={}; ex.forEach(x=>byCat[x.cat]=(byCat[x.cat]||0)+x.amt);
-  const cats=Object.entries(byCat).sort((a,b)=>b[1]-a[1]); const maxC=cats.length?cats[0][1]:1;
-  // items
-  const items={}; ex.forEach(x=>{const k=(x.note||'').trim()||catOf(x.cat).n; (items[k]=items[k]||{n:0,v:0,c:x.cat}); items[k].n++; items[k].v+=x.amt;});
-  const top=Object.entries(items).sort((a,b)=>b[1].v-a[1].v).slice(0,6);
-  const ins=insights(periods,st);
-  // history
-  const hist=[]; for(let i=0;i<12;i++){ const x=stats(shift(periodOf(today()),-i)); if(x.total||i===0) hist.push(x); }
-  return topBar()+`
-  <div class="seg dash-seg">${[['month','هاد الشهر'],['3m','3 شهور'],['year','العام']].map(([v,l])=>`<button data-range="${v}" aria-pressed="${dRange===v}">${l}</button>`).join('')}</div>
-  <div class="panel dash-total">
-    <div style="font-size:.85rem;color:var(--mute)">خسرتي ف ${rangeTxt}</div>
-    <div class="big" style="margin:4px 0 12px;color:var(--ink)"><span class="num">${nf.format(Math.round(total))}</span><span class="cur">${CUR[state.settings.currency]}</span></div>
-    <div class="split"><div><span class="dot" style="background:var(--amber)"></span>شارجات ثابتة<b>${money(fixed)}</b></div><div><span class="dot" style="background:var(--coral)"></span>مصروف كل نهار<b>${money(spent)}</b></div></div>
-    <div class="chart">${chart}</div>
-  </div>
-  ${ins.length?`<section><h2><span class="h-t">شنو خاصك تعرف</span></h2><div class="panel">${ins.map(i=>`<div class="ins"><span class="cat-emo">${i.e}</span><p>${i.t}</p></div>`).join('')}</div></section>`:''}
-  <section><h2><span class="h-t">شنو كتشري بزاف</span> <small>حسب الفلوس</small></h2>
-    <div class="panel">${top.length? top.map(([k,v],i)=>`<div class="cat-row"><span class="cat-emo">${catOf(v.c).e}</span><div><div style="font-weight:600;font-size:.94rem">${esc(k)}</div><div style="font-size:.76rem;color:var(--mute)"><span class="num">${v.n}</span> مرة</div></div><b>${money(v.v)}</b></div>`).join('') : `<div class="empty"><b>ما كاين والو باقي</b>زيد المصاريف ديال كل نهار و غادي يبانو هنا.</div>`}</div></section>
-  ${cats.length?`<section><h2><span class="h-t">حسب الفئة</span></h2><div class="panel">${cats.map(([id,v])=>{const c=catOf(id);return `<div class="cat-row"><span class="cat-emo">${c.e}</span><div><div style="display:flex;justify-content:space-between;font-size:.92rem"><span>${c.n}</span><span class="num" style="color:var(--mute)">${Math.round(v/spent*100)}%</span></div><div class="bar"><i style="width:${v/maxC*100}%"></i></div></div><b>${money(v)}</b></div>`}).join('')}</div></section>`:''}
-  <section><h2><span class="h-t">الهيستوري</span> <small>كليكي باش تحلّ الشهر</small></h2>
-    <div class="panel">${hist.map(x=>`<button class="exp" data-period="${x.p.y}-${x.p.m}"><span class="cat-emo">🗓️</span><span><span class="t">${periodLabel(x.p)}</span><br><span class="n">شارجات ${money(x.fixedPaid)} · كل نهار ${money(x.spent)}</span></span><span class="a">${money(x.total)}</span></button>`).join('')}</div></section>`;
 }
 
 function viewFixed(){
@@ -550,11 +610,7 @@ function viewFixed(){
   const pct=t.fixedTotal? t.fixedPaid/t.fixedTotal*100:0;
   return topBar()+`<section>
     <h2><span class="h-t">الشارجات الثابتة</span> <small>كتخلّصهم مرة ف الشهر</small></h2>
-    <div class="fx-sum">
-      <div>كاملين<b>${money(t.fixedTotal)}</b></div>
-      <div>خلّصتي<b>${money(t.fixedPaid)}</b></div>
-      <div>باقي تخلّص<b>${money(t.fixedTotal-t.fixedPaid)}</b></div>
-    </div>
+    <div class="fx-sum"><div>كاملين<b>${n0(t.fixedTotal)}</b></div><div>خلّصتي<b>${n0(t.fixedPaid)}</b></div><div>باقي تخلّص<b>${n0(t.fixedTotal-t.fixedPaid)}</b></div></div>
     ${list.length?`<div class="progress"><i style="width:${pct}%"></i></div>`:''}
     <div class="panel">${list.length? list.map(f=>`<div class="fx ${t.md.paid[f.id]?'paid':''}">
         <button class="check" data-pay="${f.id}" aria-label="خلّصت ${esc(f.name)}" aria-pressed="${!!t.md.paid[f.id]}"><span>✓</span></button>
@@ -566,25 +622,123 @@ function viewFixed(){
   </section>`;
 }
 
+/* ---------- dashboard charts ---------- */
+function donut(segs,total,label){
+  const r=62, C=2*Math.PI*r; let acc=0;
+  const arcs=segs.filter(s=>s.v>0).map(s=>{ const len=total? s.v/total*C:0; const el=`<circle cx="90" cy="90" r="${r}" fill="none" stroke="${s.c}" stroke-width="30" stroke-dasharray="${len.toFixed(2)} ${C.toFixed(2)}" stroke-dashoffset="${(-acc).toFixed(2)}" transform="rotate(-90 90 90)"/>`; acc+=len; return el; }).join('');
+  return `<svg class="donut" viewBox="0 0 180 180" role="img" aria-label="${label}"><circle cx="90" cy="90" r="${r}" fill="none" stroke="var(--soft)" stroke-width="30"/>${arcs}<circle cx="90" cy="90" r="${r+15}" fill="none" stroke="var(--line)" stroke-width="2.5"/><circle cx="90" cy="90" r="${r-15}" fill="none" stroke="var(--line)" stroke-width="2.5"/></svg>`;
+}
+function lineChart(){
+  const ds=days(cur), n=ds.length, tIso=iso(today()), Wd=340, H=190, pl=10, pr=10, pt=14, pb=24;
+  const ex=periodExp(cur); const perDay={}; ex.forEach(x=>{ (perDay[x.date]=perDay[x.date]||{}); perDay[x.date][x.w]=(perDay[x.date][x.w]||0)+x.amt; });
+  const series={}; W().forEach(w=>series[w.id]=[]); const tot=[]; const run={}; W().forEach(w=>run[w.id]=0); let rt=0;
+  ds.forEach(d=>{ const k=iso(d); if(isCurrent()&&k>tIso) return; W().forEach(w=>{ run[w.id]+=(perDay[k]&&perDay[k][w.id])||0; series[w.id].push(run[w.id]); }); rt=W().reduce((a,w)=>a+run[w.id],0); tot.push(rt); });
+  const prev=periodExp(shift(cur,-1)); const pr0=range(shift(cur,-1)); const pds=days(shift(cur,-1)); const prevTot=[]; let pr2=0; const pDay={}; prev.forEach(x=>pDay[x.date]=(pDay[x.date]||0)+x.amt); pds.forEach(d=>{ pr2+=pDay[iso(d)]||0; prevTot.push(pr2); });
+  const budget=W().reduce((a,w)=>a+w.budget,0);
+  const ymax=Math.max(1,budget,...tot,...prevTot)*1.08;
+  const x=i=>Wd-pr-i*(Wd-pl-pr)/Math.max(1,n-1);
+  const y=v=>pt+(H-pt-pb)*(1-v/ymax);
+  const path=a=>a.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)).join(' ');
+  const area=tot.length? path(tot)+` L${x(tot.length-1).toFixed(1)} ${y(0).toFixed(1)} L${x(0).toFixed(1)} ${y(0).toFixed(1)} Z`:'';
+  const grid=[0,.5,1].map(f=>`<line x1="${pl}" x2="${Wd-pr}" y1="${y(ymax/1.08*f)}" y2="${y(ymax/1.08*f)}" stroke="var(--soft)" stroke-width="1.5"/>`).join('');
+  const lbl=[0,Math.floor((n-1)/2),n-1].map(i=>`<text x="${x(i)}" y="${H-6}" text-anchor="middle" font-size="10" font-weight="700" fill="var(--mute)">${ds[i].getDate()} ${MONTHS[ds[i].getMonth()].slice(0,4)}</text>`).join('');
+  const last=tot.length-1;
+  return `<svg viewBox="0 0 ${Wd} ${H}" class="lc" role="img" aria-label="الصرف نهار بنهار">${grid}
+    ${budget?`<line x1="${pl}" x2="${Wd-pr}" y1="${y(budget)}" y2="${y(budget)}" stroke="var(--orange)" stroke-width="2.5" stroke-dasharray="7 5"/><text x="${Wd-pr}" y="${y(budget)-6}" text-anchor="end" direction="ltr" font-size="10" font-weight="800" fill="var(--orange)">الميزانية ${compact(budget)}</text>`:''}
+    ${prevTot.length?`<path d="${path(prevTot.slice(0,n))}" fill="none" stroke="var(--mute)" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/>`:''}
+    ${area?`<path d="${area}" fill="var(--ink)" opacity=".07"/>`:''}
+    ${W().map(w=>series[w.id].length?`<path d="${path(series[w.id])}" fill="none" stroke="${wc(w).bg}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`:'').join('')}
+    ${tot.length?`<path d="${path(tot)}" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${x(last)}" cy="${y(tot[last])}" r="6" fill="var(--orange)" stroke="var(--ink)" stroke-width="2.5"/>`:''}
+    ${lbl}</svg>
+    <div class="legend"><span><i style="background:var(--ink)"></i>المجموع</span>${W().map(w=>`<span><i style="background:${wc(w).bg}"></i>${esc(w.name)}</span>`).join('')}<span><i class="dash" style="background:var(--mute)"></i>الشهر اللي فات</span></div>`;
+}
+
+function insights(st){
+  const out=[]; const ex=st.flatMap(x=>x.ex); if(!ex.length) return out;
+  const t=totals();
+  // budgets pace (current period)
+  if(isCurrent()){ const r=range(cur), L=(r.e-r.s)/864e5, el=(today()-r.s)/864e5+1;
+    W().forEach(w=>{ const s=t.byW[w.id]||0; if(!w.budget) return;
+      if(s>w.budget) out.push({e:'🚨',t:`<b>${esc(w.name)}</b> فات الميزانية ب ${money(s-w.budget)}.`});
+      else if(s>w.budget*el/L*1.15) out.push({e:'⚡',t:`<b>${esc(w.name)}</b> كيصرف أسرع من العادة: صرف ${money(s)} من ${n0(w.budget)} و باقي <b class="num">${daysLeft()}</b> يوم.`});
+      else out.push({e:'✅',t:`<b>${esc(w.name)}</b> ماشي مزيان: باقي ليه ${money(w.budget-s)}، يعني تقريبا ${money((w.budget-s)/daysLeft())} ف النهار.`}); });
+    const save=t.income-t.fixedTotal-W().reduce((a,w)=>a+w.budget,0);
+    if(t.income&&save>0) out.push({e:'💰',t:`إلا بقيتو ف الميزانية، كيبقى ليكم <b>${money(save)}</b> توفير ف آخر الشهر.`});
+  }
+  const items={}; ex.forEach(x=>{const k=(x.note||'').trim(); if(!k) return; (items[k]=items[k]||{n:0,v:0}); items[k].n++; items[k].v+=x.amt;});
+  const rep=Object.entries(items).filter(([,v])=>v.n>=3).sort((a,b)=>b[1].v-a[1].v)[0];
+  if(rep) out.push({e:'🔁',t:`شريتو <b>${esc(rep[0])}</b> <b class="num">${rep[1].n}</b> مرة = ${money(rep[1].v)}. إلا نقصتو النص، توفرو ${money(rep[1].v/2)}.`});
+  const big=[...ex].sort((a,b)=>b.amt-a.amt)[0];
+  if(big) out.push({e:'🏷️',t:`أكبر مصروف: <b>${esc(big.note)||'مصروف'}</b> — ${money(big.amt)} (${esc(wOf(big.w).name)}، ${dLabel(big.date)}).`});
+  const wd=[0,0,0,0,0,0,0]; ex.forEach(x=>wd[new Date(x.date+'T12:00').getDay()]+=x.amt);
+  const wi=wd.indexOf(Math.max(...wd)); if(wd[wi]>0) out.push({e:'📆',t:`أكثر نهار كتصرفو فيه هو <b>${WD[wi]}</b> (${money(wd[wi])}).`});
+  return out;
+}
+
+function viewDash(){
+  const n= dRange==='month'?1: dRange==='3m'?3:12;
+  const periods=[]; for(let i=n-1;i>=0;i--) periods.push(shift(cur,-i));
+  const st=periods.map(stats);
+  const fixed=st.reduce((a,x)=>a+x.fixedPaid,0), spent=st.reduce((a,x)=>a+x.spent,0), total=fixed+spent;
+  const byW={}; W().forEach(w=>byW[w.id]=st.reduce((a,x)=>a+(x.byW[w.id]||0),0));
+  const segs=[{v:fixed,c:FIXED_C,l:'الشارجات الثابتة'}].concat(W().map(w=>({v:byW[w.id],c:wc(w).bg,l:'مصروف '+w.name})));
+  const rangeTxt= dRange==='month'? periodLabel(cur) : 'آخر '+n+' شهور';
+  const ex=st.flatMap(x=>x.ex);
+  // month bars
+  const cn= dRange==='year'?12:6; const cp=[]; for(let i=cn-1;i>=0;i--) cp.push(stats(shift(cur,-i)));
+  const cmax=Math.max(1,...cp.map(x=>x.total));
+  const bars=cp.map(x=>{const sel=sameP(x.p,cur); const parts=[{v:x.fixedPaid,c:FIXED_C}].concat(W().map(w=>({v:x.byW[w.id]||0,c:wc(w).bg}))).filter(s=>s.v>0);
+    return `<button class="col ${sel?'sel':''}" data-period="${x.p.y}-${x.p.m}" aria-label="${shortLabel(x.p)}: ${Math.round(x.total)}"><span class="v num">${x.total?compact(x.total):''}</span><span class="stack" style="height:${Math.max(3,x.total/cmax*120)}px">${parts.map(s=>`<i style="flex-grow:${s.v};background:${s.c}"></i>`).join('')}</span><small>${shortLabel(x.p)}</small></button>`}).join('');
+  // top items
+  const items={}; ex.forEach(x=>{const k=(x.note||'').trim()||'مصروف'; (items[k]=items[k]||{n:0,v:0,w:{}}); items[k].n++; items[k].v+=x.amt; items[k].w[x.w]=(items[k].w[x.w]||0)+x.amt;});
+  const top=Object.entries(items).sort((a,b)=>b[1].v-a[1].v).slice(0,7); const tmax=top.length?top[0][1].v:1;
+  const ins=insights(st);
+  const t=totals();
+  const hist=[]; for(let i=0;i<12;i++){ const x=stats(shift(periodOf(today()),-i)); if(x.total||i===0) hist.push(x); }
+  return topBar()+`
+  <div class="seg dash-seg">${[['month','هاد الشهر'],['3m','3 شهور'],['year','العام']].map(([v,l])=>`<button data-range="${v}" aria-pressed="${dRange===v}">${l}</button>`).join('')}</div>
+  <div class="card dash-total">
+    <div class="muted-s">صرفتو ف ${rangeTxt}</div>
+    <div class="dt-row">
+      <div class="dt-donut">${donut(segs,total,'التقسيم')}<div class="dt-c"><b class="num">${compact(total)}</b><small>${cu()}</small></div></div>
+      <div class="dt-leg">${segs.map(s=>`<div><i style="background:${s.c}"></i><span>${esc(s.l)}<b>${money(s.v)}</b></span><em class="num">${total?Math.round(s.v/total*100):0}%</em></div>`).join('')}</div>
+    </div>
+  </div>
+  <section class="card"><h2><span class="h-t">الميزانيات</span> <small>${periodLabel(cur)}</small></h2>
+    ${W().map(w=>{const s=t.byW[w.id]||0, p=w.budget?Math.min(100,s/w.budget*100):0, over=s>w.budget; return `<button class="bud" data-wallet="${w.id}"><span class="bud-h">${wChip(w)}<span class="${over?'over':''}">${money(s)} / ${n0(w.budget)}</span></span><span class="bud-bar"><i style="width:${p}%;background:${over?'var(--red)':wc(w).bg}"></i></span></button>`}).join('')}
+  </section>
+  <section class="card"><h2><span class="h-t">الصرف نهار بنهار</span></h2>${lineChart()}</section>
+  <section class="card"><h2><span class="h-t">الشهور</span> <small>كليكي على شهر</small></h2><div class="chart">${bars}</div>
+    <div class="legend"><span><i style="background:${FIXED_C}"></i>شارجات</span>${W().map(w=>`<span><i style="background:${wc(w).bg}"></i>${esc(w.name)}</span>`).join('')}</div></section>
+  ${ins.length?`<section><h2><span class="h-t">شنو خاصكم تعرفو</span></h2><div class="panel">${ins.map(i=>`<div class="ins"><span class="ins-e">${i.e}</span><p>${i.t}</p></div>`).join('')}</div></section>`:''}
+  <section class="card"><h2><span class="h-t">شنو كتشريو بزاف</span> <small>${rangeTxt}</small></h2>
+    ${top.length? top.map(([k,v])=>{const wId=Object.entries(v.w).sort((a,b)=>b[1]-a[1])[0][0]; const w=wOf(wId); return `<div class="hb"><div class="hb-h"><span><b>${esc(k)}</b> <small><span class="num">${v.n}</span>×</small></span><b>${money(v.v)}</b></div><div class="hb-bar"><i style="width:${v.v/tmax*100}%;background:${wc(w).bg}"></i></div></div>`}).join('') : `<div class="empty"><b>ما كاين والو باقي</b>كتبو المصاريف ديال كل نهار و غادي يبانو هنا.</div>`}
+  </section>
+  <section><h2><span class="h-t">الهيستوري</span> <small>كليكي باش تحلّ الشهر</small></h2>
+    <div class="panel">${hist.map(x=>`<button class="exp" data-period="${x.p.y}-${x.p.m}" data-open="1"><span class="exp-dot" style="background:var(--orange)"></span><span><span class="t">${periodLabel(x.p)}</span><br><span class="n">شارجات ${n0(x.fixedPaid)} · ${W().map(w=>esc(w.name)+' '+n0(x.byW[w.id]||0)).join(' · ')}</span></span><span class="a">${money(x.total)}</span></button>`).join('')}</div></section>`;
+}
+
 function viewSettings(){
   const s=state.settings;
-  return `<div class="top"><span class="brand">الإعدادات</span></div>
+  return `<div class="top"><span class="brand">الإعدادات</span><div class="top-r"><button class="icon-btn sq" data-tab-go="month" aria-label="رجوع">‹</button></div></div>
   <section><div class="panel">
-    <div class="set-row"><div>الدخل الشهري<div class="d">الخلصة ديالك</div></div><button class="link" data-act="edit-base-income">${money(s.income)}</button></div>
-    <div class="set-row"><div>الشهر كيبدا نهار<div class="d">نهار الخلصة — الشهر كيتحسب من ${sd()} ل ${sd()}</div></div><button class="link" data-act="edit-sd"><span class="num">${sd()}</span></button></div>
+    <div class="set-row"><div>الدخل الشهري<div class="d">الخلصة</div></div><button class="link" data-act="edit-base-income">${money(s.income)}</button></div>
+    <div class="set-row"><div>الشهر كيبدا نهار<div class="d">من ${sd()} ل ${sd()}</div></div><button class="link" data-act="edit-sd"><span class="num">${sd()}</span></button></div>
     <div class="set-row"><div>العملة</div><div class="seg">${Object.keys(CUR).map(c=>`<button data-cur="${c}" aria-pressed="${s.currency===c}">${CUR[c]}</button>`).join('')}</div></div>
     <div class="set-row"><div>المظهر</div><div class="seg">${[['light','فاتح'],['dark','غامق'],['auto','أوطو']].map(([v,l])=>`<button data-theme-set="${v}" aria-pressed="${(s.theme||'light')===v}">${l}</button>`).join('')}</div></div>
+  </div></section>
+  <section><h2><span class="h-t">الميزانيات</span> <small>كل واحد بوحدو</small></h2><div class="panel">
+    ${W().map(w=>`<button class="set-row" data-wedit="${w.id}" style="width:100%;text-align:start"><div>${wChip(w)}</div><span class="link">${money(w.budget)} ف الشهر</span></button>`).join('')}
   </div>
-  <div class="sync">${syncMode==='cloud'?'✓ الداطا محفوظة ف الحساب ديالك.':'الداطا محفوظة ف هاد التيليفون.'}</div>
-  </section>
-  <section><div style="display:flex;flex-direction:column;gap:10px">
+  ${W().length<4?'<button class="btn btn-ghost" data-act="add-wallet" style="margin-top:12px">+ زيد شخص / ميزانية</button>':''}
+  <div class="sync">${syncMode==='cloud'?'✓ الداطا محفوظة ف الحساب ديالك.':'الداطا محفوظة ف هاد التيليفون.'}</div></section>
+  <section><div style="display:flex;flex-direction:column;gap:12px">
     <button class="btn btn-ghost" data-act="export">صدّر هاد الشهر ك CSV</button>
     <button class="btn btn-danger" data-act="reset">مسح كولشي و بدا من الصفر</button>
   </div></section>`;
 }
 
 function applyTheme(){ document.documentElement.setAttribute('data-theme',state.settings.theme||'light'); }
-
 function render(){
   applyTheme();
   if(!state.settings.setup){ app.innerHTML=viewOnboard(); return; }
@@ -595,59 +749,92 @@ function render(){
 
 /* ---------- sheets ---------- */
 const sheet=document.getElementById('sheet'), scrim=document.getElementById('scrim');
-function openSheet(html,focusSel){ sheet.innerHTML='<div class="grab"></div>'+html; sheet.classList.add('on'); scrim.classList.add('on'); if(focusSel) setTimeout(()=>{const f=sheet.querySelector(focusSel); f&&f.focus();},320); }
+function openSheet(html,focusSel){ sheet.innerHTML='<div class="grab"></div>'+html; sheet.classList.add('on'); scrim.classList.add('on'); sheet.scrollTop=0; if(focusSel) setTimeout(()=>{const f=sheet.querySelector(focusSel); f&&f.focus();},320); }
 function closeSheet(){ sheet.classList.remove('on'); scrim.classList.remove('on'); }
 scrim.onclick=closeSheet;
 const parseNum=v=>{const n=parseFloat(String(v).replace(/\s/g,'').replace(',','.')); return isFinite(n)?n:NaN};
 function defaultDate(){ if(tab==='cal') return selDate; if(isCurrent()) return iso(today()); return range(cur).si; }
-function recentNotes(){ const seen=new Set(), out=[]; [...state.exp].sort((a,b)=>b.ts-a.ts).forEach(x=>{ const k=(x.note||'').trim(); if(k&&!seen.has(k)&&out.length<8){seen.add(k); out.push(x);} }); return out; }
+function recentNotes(){ const seen=new Set(), out=[]; [...state.exp].sort((a,b)=>b.ts-a.ts).forEach(x=>{ const k=(x.note||'').trim(); if(k&&!seen.has(k)&&out.length<10){seen.add(k); out.push(x);} }); return out; }
 
-function expenseSheet(x,presetDate){
-  let sel=x?x.cat:'hanout';
+function expenseSheet(x,preset){
+  preset=preset||{};
+  let selW= x? x.w : (preset.w||state.settings.lastW||W()[0].id);
   const rec=x?[]:recentNotes();
   openSheet(`<h3>${x?'بدّل المصروف':'شنو شريتي؟'}</h3>
-    <div class="amount-in"><span>${CUR[state.settings.currency]}</span><input id="f-amt" type="text" inputmode="decimal" placeholder="0" value="${x?x.amt:''}" aria-label="المبلغ"></div>
-    ${rec.length?`<div class="field" style="margin-bottom:10px"><span>اللي كتعاود تشري</span><div class="quick">${rec.map(r=>`<button class="chip" data-q="${r.id}">${catOf(r.cat).e} ${esc(r.note)}</button>`).join('')}</div></div>`:''}
-    <div class="chips" id="f-cats">${CATS.map(c=>`<button class="chip" data-c="${c.id}" aria-pressed="${c.id===sel}">${c.e} ${c.n}</button>`).join('')}</div>
-    <div class="row2">
-      <label class="field"><span>شنو خديتي</span><input id="f-note" type="text" placeholder="مثلا: حليب و دانون" value="${x?esc(x.note):''}"></label>
-      <label class="field"><span>النهار</span><input id="f-date" type="date" value="${x?x.date:(presetDate||defaultDate())}"></label>
-    </div>
-    <div class="actions"><button class="btn btn-main" id="f-save">${x?'سجّل التبديل':'زيد'}</button>
-    ${x?'<button class="btn btn-danger" id="f-del">حيد هاد المصروف</button>':''}</div>`, x?null:'#f-amt');
-  const setCat=id=>{ sel=id; sheet.querySelectorAll('#f-cats .chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.c===id)); };
-  sheet.querySelector('#f-cats').onclick=e=>{const b=e.target.closest('.chip'); if(b) setCat(b.dataset.c);};
+    <div class="wseg" id="f-w">${W().map(w=>`<button data-w="${w.id}" aria-pressed="${w.id===selW}" style="--wc:${wc(w).bg};--wf:${wc(w).fg}">${esc(w.name)}</button>`).join('')}</div>
+    <label class="field"><span>شنو شريتي</span><input id="f-note" type="text" placeholder="مثلا: حليب و دانون" value="${x?esc(x.note):''}" autocomplete="off"></label>
+    ${rec.length?`<div class="quick">${rec.map(r=>`<button class="chip" data-q="${r.id}">${esc(r.note)} · <span class="num">${nf.format(r.amt)}</span></button>`).join('')}</div>`:''}
+    <div id="f-calc">${calcHtml()}</div>
+    <div class="save-row"><input id="f-date" type="date" value="${x?x.date:(preset.date||defaultDate())}" aria-label="النهار"><button class="btn btn-main" id="f-save">${x?'سجّل':'زيد'}</button></div>
+    ${x?'<button class="btn btn-danger" id="f-del">حيد هاد المصروف</button>':''}`);
+  let calc=bindCalc(sheet.querySelector('#f-calc'), x? String(x.amt) : (preset.amt? String(preset.amt):''));
+  sheet.querySelector('#f-w').onclick=e=>{const b=e.target.closest('[data-w]'); if(!b) return; selW=b.dataset.w; sheet.querySelectorAll('#f-w button').forEach(c=>c.setAttribute('aria-pressed',c.dataset.w===selW));};
   const q=sheet.querySelector('.quick');
   if(q) q.onclick=e=>{const b=e.target.closest('[data-q]'); if(!b) return; const r=state.exp.find(v=>v.id===b.dataset.q); if(!r) return;
-    sheet.querySelector('#f-note').value=r.note; setCat(r.cat); const a=sheet.querySelector('#f-amt'); if(!a.value) a.value=r.amt; };
+    sheet.querySelector('#f-note').value=r.note; const box=sheet.querySelector('#f-calc'); box.innerHTML=calcHtml(); calc=bindCalc(box,String(r.amt)); };
   sheet.querySelector('#f-save').onclick=()=>{
-    const amt=parseNum(sheet.querySelector('#f-amt').value);
-    if(!(amt>0)){ toast('كتب المبلغ أولا'); sheet.querySelector('#f-amt').focus(); return; }
+    const amt=calc.val();
+    if(!(amt>0)){ toast('كتب المبلغ ف الحاسبة'); return; }
     const date=sheet.querySelector('#f-date').value||defaultDate();
     const note=sheet.querySelector('#f-note').value.trim();
-    if(x){ Object.assign(x,{amt,cat:sel,note,date}); }
-    else state.exp.push({id:uid(),amt,cat:sel,note,date,ts:Date.now()});
-    selDate=date; cur=periodOf(new Date(date+'T12:00'));
-    persist(); closeSheet(); render(); toast(x?'تبدّل ✓':'تزاد ✓');
+    const a=Math.round(amt*100)/100;
+    if(x){ Object.assign(x,{amt:a,note,date,w:selW}); }
+    else state.exp.push({id:uid(),amt:a,note,date,w:selW,ts:Date.now()});
+    state.settings.lastW=selW; selDate=date; cur=periodOf(new Date(date+'T12:00'));
+    persist(); closeSheet(); render(); toast(x?'تبدّل ✓':'تزاد ✓ — '+wOf(selW).name);
   };
   const del=sheet.querySelector('#f-del');
   if(del) del.onclick=()=>{ state.exp=state.exp.filter(e=>e.id!==x.id); persist(); closeSheet(); render(); toast('تحيّد'); };
+}
+
+function calcSheet(){
+  openSheet(`<h3>الحاسبة</h3><div id="c-calc">${calcHtml()}</div>
+    <button class="btn btn-main" id="c-add" style="margin-top:14px">زيد النتيجة كمصروف</button>`);
+  const calc=bindCalc(sheet.querySelector('#c-calc'),'');
+  sheet.querySelector('#c-add').onclick=()=>{ const v=calc.val(); if(!(v>0)){toast('ما كاين حتى نتيجة');return;} closeSheet(); setTimeout(()=>expenseSheet(null,{amt:Math.round(v*100)/100}),250); };
+}
+
+function walletSheet(w){
+  const st=stats(cur), items=st.ex.filter(x=>x.w===w.id).sort((a,b)=>b.date.localeCompare(a.date)||b.ts-a.ts);
+  const s=st.byW[w.id]||0;
+  openSheet(`<h3>مصروف ${esc(w.name)}</h3>
+    <div class="wal wal-in" style="background:${wc(w).bg};color:${wc(w).fg}"><span class="wal-l">${w.budget-s<0?'فايت ب':'باقي'}</span><b class="num">${nf.format(Math.round(Math.abs(w.budget-s)))}</b><small>صرف ${n0(s)} من ${n0(w.budget)} · ${periodLabel(cur)}</small></div>
+    <div class="actions" style="margin:14px 0"><button class="btn btn-main" id="w-add">+ زيد مصروف ل ${esc(w.name)}</button><button class="btn btn-ghost" id="w-edit">بدّل الميزانية / السمية</button></div>
+    <div class="panel">${items.length? items.map(expRow).join('') : `<div class="empty"><b>ما صرف والو هاد الشهر</b></div>`}</div>`);
+  sheet.querySelector('#w-add').onclick=()=>{ closeSheet(); setTimeout(()=>expenseSheet(null,{w:w.id}),250); };
+  sheet.querySelector('#w-edit').onclick=()=>walletEdit(w);
+  sheet.querySelector('.panel').onclick=e=>{ const b=e.target.closest('[data-exp]'); if(!b) return; const x=state.exp.find(v=>v.id===b.dataset.exp); if(x) expenseSheet(x); };
+}
+
+function walletEdit(w){
+  const isNew=!w; w=w||{id:uid(),name:'',budget:1000,c:W().length%PAL.length};
+  openSheet(`<h3>${isNew?'ميزانية جديدة':'بدّل '+esc(w.name)}</h3>
+    <label class="field"><span>السمية</span><input id="we-name" type="text" value="${esc(w.name)}" placeholder="مثلا: الدار"></label>
+    <label class="field"><span>الميزانية ف الشهر (${cu()})</span><input id="we-b" type="text" inputmode="decimal" dir="ltr" value="${w.budget}"></label>
+    <div class="field"><span>اللون</span><div class="wseg">${PAL.map((p,i)=>`<button data-c="${i}" aria-pressed="${w.c===i}" style="--wc:${p.bg};--wf:${p.fg}">●</button>`).join('')}</div></div>
+    <div class="actions"><button class="btn btn-main" id="we-save">سجّل</button>${!isNew&&W().length>1?'<button class="btn btn-danger" id="we-del">حيد هاد الميزانية</button>':''}</div>`,'#we-name');
+  let c=w.c;
+  sheet.querySelector('.wseg').onclick=e=>{const b=e.target.closest('[data-c]'); if(!b) return; c=+b.dataset.c; sheet.querySelectorAll('.wseg [data-c]').forEach(x=>x.setAttribute('aria-pressed',+x.dataset.c===c));};
+  sheet.querySelector('#we-save').onclick=()=>{ const name=sheet.querySelector('#we-name').value.trim(); const b=parseNum(sheet.querySelector('#we-b').value);
+    if(!name){toast('كتب السمية');return;} if(!(b>=0)){toast('كتب الميزانية');return;}
+    Object.assign(w,{name,budget:b,c}); if(isNew) state.settings.wallets.push(w); persist(); closeSheet(); render(); toast('تسجّل ✓'); };
+  const d=sheet.querySelector('#we-del');
+  if(d) d.onclick=()=>{ const n=state.exp.filter(x=>x.w===w.id).length; if(!confirm(n?`عندو ${n} مصروف. غادي يدوزو ل ${W().find(v=>v.id!==w.id).name}. نكملو؟`:'نحيدو هاد الميزانية؟')) return;
+    const to=W().find(v=>v.id!==w.id).id; state.exp.forEach(x=>{if(x.w===w.id) x.w=to;}); state.settings.wallets=W().filter(v=>v.id!==w.id); if(state.settings.lastW===w.id) state.settings.lastW=to; persist(); closeSheet(); render(); };
 }
 
 function fixedSheet(f){
   openSheet(`<h3>${f?'بدّل الشارج':'شارج ثابت جديد'}</h3>
     <label class="field"><span>السمية</span><input id="x-name" type="text" placeholder="مثلا: الكرا، الأنترنيت" value="${f?esc(f.name):''}"></label>
     <div class="row2">
-      <label class="field"><span>المبلغ (${CUR[state.settings.currency]})</span><input id="x-amt" type="text" inputmode="decimal" dir="ltr" value="${f?f.amount:''}"></label>
+      <label class="field"><span>المبلغ (${cu()})</span><input id="x-amt" type="text" inputmode="decimal" dir="ltr" value="${f?f.amount:''}"></label>
       <label class="field"><span>كتخلّصو نهار</span><input id="x-day" type="number" min="1" max="31" dir="ltr" value="${f?f.day:sd()}"></label>
     </div>
     <div class="actions"><button class="btn btn-main" id="x-save">${f?'سجّل التبديل':'زيد الشارج'}</button></div>`, f?null:'#x-name');
   sheet.querySelector('#x-save').onclick=()=>{
-    const name=sheet.querySelector('#x-name').value.trim();
-    const amount=parseNum(sheet.querySelector('#x-amt').value);
+    const name=sheet.querySelector('#x-name').value.trim(); const amount=parseNum(sheet.querySelector('#x-amt').value);
     let day=parseInt(sheet.querySelector('#x-day').value,10); if(!(day>=1&&day<=31)) day=1;
-    if(!name){toast('كتب السمية ديال الشارج');return;}
-    if(!(amount>0)){toast('كتب المبلغ');return;}
+    if(!name){toast('كتب السمية ديال الشارج');return;} if(!(amount>0)){toast('كتب المبلغ');return;}
     if(f){Object.assign(f,{name,amount,day});} else state.fixed.push({id:uid(),name,amount,day});
     persist(); closeSheet(); render(); toast(f?'تبدّل ✓':'تزاد الشارج ✓');
   };
@@ -657,43 +844,35 @@ function incomeSheet(base){
   const md=periodData(mk(cur.y,cur.m));
   const val= base? state.settings.income : (md.income!=null?md.income:state.settings.income);
   openSheet(`<h3>${base?'الدخل الشهري':'الدخل ديال هاد الشهر'}</h3>
-    <p style="color:var(--mute);margin:-6px 0 14px;font-size:.9rem">${base?'الخلصة العادية، كتتحسب ف كل شهر.':'غير لهاد الشهر (بريم، خدمة زيادة…).'}</p>
-    <div class="amount-in"><span>${CUR[state.settings.currency]}</span><input id="i-amt" type="text" inputmode="decimal" value="${val||''}"></div>
-    <div class="actions"><button class="btn btn-main" id="i-save">سجّل</button>
-    ${!base&&md.income!=null?'<button class="btn btn-ghost" id="i-reset">رجع للدخل العادي</button>':''}</div>`,'#i-amt');
-  sheet.querySelector('#i-save').onclick=()=>{
-    const v=parseNum(sheet.querySelector('#i-amt').value); if(!(v>=0)){toast('كتب رقم صحيح');return;}
-    if(base) state.settings.income=v; else md.income=v;
-    persist(); closeSheet(); render(); toast('تسجّل ✓');
-  };
+    <p class="muted-s" style="margin:-6px 0 14px">${base?'الخلصة العادية، كتتحسب ف كل شهر.':'غير لهاد الشهر (بريم، خدمة زيادة…).'}</p>
+    <label class="field"><input id="i-amt" type="text" inputmode="decimal" dir="ltr" value="${val||''}" style="font-size:1.6rem;font-weight:800;text-align:right"></label>
+    <div class="actions"><button class="btn btn-main" id="i-save">سجّل</button>${!base&&md.income!=null?'<button class="btn btn-ghost" id="i-reset">رجع للدخل العادي</button>':''}</div>`,'#i-amt');
+  sheet.querySelector('#i-save').onclick=()=>{ const v=parseNum(sheet.querySelector('#i-amt').value); if(!(v>=0)){toast('كتب رقم صحيح');return;}
+    if(base) state.settings.income=v; else md.income=v; persist(); closeSheet(); render(); toast('تسجّل ✓'); };
   const r=sheet.querySelector('#i-reset'); if(r) r.onclick=()=>{md.income=null; persist(); closeSheet(); render();};
 }
 
 function sdSheet(){
   openSheet(`<h3>الشهر ديالك كيبدا نهار…</h3>
-    <p style="color:var(--mute);margin:-6px 0 14px;font-size:.9rem">حط النهار اللي كتخلص فيه. مثلا 25 = الشهر من 25 ل 24 ديال الشهر الجاي.</p>
-    <div class="amount-in"><span>نهار</span><input id="s-day" type="number" min="1" max="28" value="${sd()}"></div>
+    <p class="muted-s" style="margin:-6px 0 14px">النهار اللي كتخلص فيه. مثلا 25 = من 25 ل 24 ديال الشهر الجاي.</p>
+    <label class="field"><input id="s-day" type="number" min="1" max="28" dir="ltr" value="${sd()}" style="font-size:1.6rem;font-weight:800;text-align:right"></label>
     <div class="actions"><button class="btn btn-main" id="s-save">سجّل</button></div>`,'#s-day');
-  sheet.querySelector('#s-save').onclick=()=>{
-    const v=parseInt(sheet.querySelector('#s-day').value,10); if(!(v>=1&&v<=28)){toast('ختار نهار من 1 ل 28');return;}
-    state.settings.startDay=v; cur=periodOf(today()); persist(); closeSheet(); render(); toast('تسجّل ✓');
-  };
+  sheet.querySelector('#s-save').onclick=()=>{ const v=parseInt(sheet.querySelector('#s-day').value,10); if(!(v>=1&&v<=28)){toast('ختار نهار من 1 ل 28');return;}
+    state.settings.startDay=v; cur=periodOf(today()); persist(); closeSheet(); render(); toast('تسجّل ✓'); };
 }
 
 /* ---------- export ---------- */
 async function exportCsv(){
-  const t=totals(), k=mk(cur.y,cur.m), r=range(cur);
+  const t=totals(), r=range(cur);
   const q=s=>'"'+String(s).replace(/"/g,'""')+'"';
-  const rows=[['النوع','التاريخ','الفئة','الوصف','المبلغ','خلّصتي؟']];
+  const rows=[['النوع','التاريخ','شكون','الوصف','المبلغ','خلّصتي؟']];
   state.fixed.forEach(f=>rows.push(['شارج ثابت','نهار '+f.day,'',f.name,f.amount,t.md.paid[f.id]?'إيه':'لا']));
-  [...t.ex].sort((a,b)=>a.date.localeCompare(b.date)||a.ts-b.ts).forEach(x=>rows.push(['مصروف',x.date,catOf(x.cat).n,x.note,x.amt,'']));
-  rows.push([],['الدخل','','','',t.income,''],['الباقي','','','',t.left,'']);
+  [...t.ex].sort((a,b)=>a.date.localeCompare(b.date)||a.ts-b.ts).forEach(x=>rows.push(['مصروف',x.date,wOf(x.w).name,x.note,x.amt,'']));
+  rows.push([]); W().forEach(w=>rows.push(['ميزانية '+w.name,'','','',w.budget,'صرف '+(t.byW[w.id]||0)]));
+  rows.push(['الدخل','','','',t.income,''],['الباقي','','','',t.left,'']);
   const csv='\uFEFF'+rows.map(r=>r.map(q).join(',')).join('\r\n');
   const name='massrouf-'+r.si+'.csv';
-  try{
-    const dl= window.claude&&window.claude.use ? await window.claude.use('downloads') : null;
-    if(dl){ await dl.save({filename:name,data:csv}); return; }
-  }catch(e){ if(e&&e.code==='declined') return; }
+  try{ const dl= window.claude&&window.claude.use ? await window.claude.use('downloads') : null; if(dl){ await dl.save({filename:name,data:csv}); return; } }catch(e){ if(e&&e.code==='declined') return; }
   try{ const url=URL.createObjectURL(new Blob([csv],{type:'text/csv'})); const a=document.createElement('a'); a.href=url; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),2000); }catch(e){ toast('ما قدرناش نصدّرو'); }
 }
 
@@ -703,7 +882,9 @@ app.addEventListener('click',e=>{
   if(b.dataset.cur){ state.settings.currency=b.dataset.cur; if(state.settings.setup) persist(); render(); return; }
   if(b.dataset.themeSet){ state.settings.theme=b.dataset.themeSet; persist(); render(); return; }
   if(b.dataset.range){ dRange=b.dataset.range; render(); return; }
-  if(b.dataset.period){ const [y,m]=b.dataset.period.split('-').map(Number); cur={y,m}; if(b.classList.contains('exp')){ tab='month'; window.scrollTo(0,0);} render(); return; }
+  if(b.dataset.period){ const [y,m]=b.dataset.period.split('-').map(Number); cur={y,m}; if(b.dataset.open){ tab='month'; window.scrollTo(0,0);} render(); return; }
+  if(b.dataset.wallet){ const w=wOf(b.dataset.wallet); if(w) walletSheet(w); return; }
+  if(b.dataset.wedit){ walletEdit(wOf(b.dataset.wedit)); return; }
   if(b.dataset.goDay){ selDate=b.dataset.goDay; tab='cal'; render(); window.scrollTo(0,0); return; }
   if(b.dataset.day){ selDate=b.dataset.day; render(); return; }
   if(b.dataset.exp){ const x=state.exp.find(v=>v.id===b.dataset.exp); if(x) expenseSheet(x); return; }
@@ -712,18 +893,20 @@ app.addEventListener('click',e=>{
   if(b.dataset.fxdel){ const f=state.fixed.find(v=>v.id===b.dataset.fxdel); if(f&&confirm('نحيدو "'+f.name+'" من كل الشهور؟')){ state.fixed=state.fixed.filter(v=>v!==f); persist(); render(); } return; }
   if(b.dataset.tabGo){ tab=b.dataset.tabGo; render(); window.scrollTo(0,0); return; }
   switch(b.dataset.act){
-    case 'prev': cur.m--; if(cur.m<0){cur.m=11;cur.y--;} render(); break;
-    case 'next': cur.m++; if(cur.m>11){cur.m=0;cur.y++;} render(); break;
+    case 'prev': cur=shift(cur,-1); render(); break;
+    case 'next': cur=shift(cur,1); render(); break;
+    case 'calc': calcSheet(); break;
     case 'start':{ const v=parseNum(document.getElementById('onb-inc').value); if(!(v>0)){toast('كتب الدخل ديالك');return;}
       const d=parseInt(document.getElementById('onb-sd').value,10); if(d>=1&&d<=28) state.settings.startDay=d;
       state.settings.income=v; state.settings.setup=true; cur=periodOf(today()); persist(); render(); break; }
-    case 'add-day': expenseSheet(null,selDate); break;
+    case 'add-day': expenseSheet(null,{date:selDate}); break;
     case 'edit-income': incomeSheet(false); break;
     case 'edit-base-income': incomeSheet(true); break;
     case 'edit-sd': sdSheet(); break;
     case 'add-fixed': fixedSheet(null); break;
+    case 'add-wallet': walletEdit(null); break;
     case 'export': exportCsv(); break;
-    case 'reset': if(confirm('متأكد؟ غادي يتمسحو كاع المصاريف و الشارجات.')){ const th=state.settings.theme, s0=state.settings.startDay; state=blank(); state.settings.theme=th; state.settings.startDay=s0; persist(); tab='month'; render(); } break;
+    case 'reset': if(confirm('متأكد؟ غادي يتمسحو كاع المصاريف و الشارجات.')){ const s0=state.settings; state=blank(); state.settings.theme=s0.theme; state.settings.startDay=s0.startDay; state.settings.wallets=s0.wallets; persist(); tab='month'; render(); } break;
   }
 });
 nav.addEventListener('click',e=>{
